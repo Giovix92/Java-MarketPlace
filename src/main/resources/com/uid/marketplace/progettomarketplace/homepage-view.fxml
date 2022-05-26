@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.HomepageController">
+<AnchorPane prefHeight="770.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.HomepageController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="1024.0" AnchorPane.bottomAnchor="710.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -26,19 +26,19 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="94.0" text="Categorie">
+            <MenuButton fx:id="CategoriesButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" text="Categorie">
               <items>
-                <MenuItem mnemonicParsing="false" text="Scarpe" />
-                <MenuItem mnemonicParsing="false" text="Abbigliamento" />
-                  <MenuItem mnemonicParsing="false" text="Casa e Giardino" />
-                  <MenuItem mnemonicParsing="false" text="Libri" />
-                  <MenuItem mnemonicParsing="false" text="Musica, FIlm e TV" />
-                  <MenuItem mnemonicParsing="false" text="Videogiochi e Console" />
-                  <MenuItem mnemonicParsing="false" text="Elettronica e Informatica" />
-                  <MenuItem mnemonicParsing="false" text="Salute e Benessere" />
-                  <MenuItem mnemonicParsing="false" text="Per Bambini" />
-                  <MenuItem mnemonicParsing="false" text="Sport e Tempo Libero" />
-                  <MenuItem mnemonicParsing="false" text="Scelti da Noi" />
+                <MenuItem mnemonicParsing="false" onAction="#ShoesAction" text="Scarpe" />
+                <MenuItem mnemonicParsing="false" onAction="#ClothesAction" text="Abbigliamento" />
+                  <MenuItem mnemonicParsing="false" onAction="#HouseAction" text="Casa e Giardino" />
+                  <MenuItem mnemonicParsing="false" onAction="#BooksAction" text="Libri" />
+                  <MenuItem mnemonicParsing="false" onAction="#MusicAction" text="Musica, FIlm e TV" />
+                  <MenuItem mnemonicParsing="false" onAction="#VideogamesAction" text="Videogiochi e Console" />
+                  <MenuItem mnemonicParsing="false" onAction="#ElectronicsAction" text="Elettronica e Informatica" />
+                  <MenuItem mnemonicParsing="false" onAction="#HealthAction" text="Salute e Benessere" />
+                  <MenuItem mnemonicParsing="false" onAction="#kidsAction" text="Per Bambini" />
+                  <MenuItem mnemonicParsing="false" onAction="#SportAction" text="Sport e Tempo Libero" />
+                  <MenuItem mnemonicParsing="false" onAction="#OurAction" text="Scelti da Noi" />
               </items>
                <HBox.margin>
                   <Insets bottom="12.5" top="12.5" />
@@ -63,18 +63,23 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="accountButton" mnemonicParsing="false" onAction="#AccessPageAction" prefHeight="35.0" prefWidth="80.0" text="Accedi">
+            <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="85.0" text="Account">
+              <items>
+                <MenuItem fx:id="AccessButton" mnemonicParsing="false" onAction="#AccessAction" text="Accedi" />
+                <MenuItem fx:id="RegisterButton" mnemonicParsing="false" onAction="#RegisterAction" text="Registrati" />
+                  <MenuItem fx:id="ChangeMailButton" mnemonicParsing="false" onAction="#ChangeMailAction" text="Cambia e-mail" />
+                  <MenuItem fx:id="ChangePasswordButton" mnemonicParsing="false" onAction="#ChangePasswordAction" text="Cambia password" />
+                  <MenuItem fx:id="BalanceButton" mnemonicParsing="false" onAction="#BalanceAction" text="Saldo" />
+                  <MenuItem fx:id="ExitButton" mnemonicParsing="false" onAction="#ExitAction" text="Esci" />
+              </items>
                <HBox.margin>
                   <Insets bottom="12.5" left="10.0" right="5.0" top="12.5" />
                </HBox.margin>
                <font>
                   <Font name="Roboto" size="13.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#OrderAction" prefHeight="35.0" prefWidth="80.0" text="Ordini">
+            </MenuButton>
+            <Button mnemonicParsing="false" onAction="#OrderAction" prefHeight="35.0" prefWidth="85.0" text="Ordini">
                <HBox.margin>
                   <Insets bottom="12.5" left="5.0" right="5.0" top="12.5" />
                </HBox.margin>
@@ -85,7 +90,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#CartAction" prefHeight="35.0" prefWidth="80.0" text="Carrello">
+            <Button mnemonicParsing="false" onAction="#CartAction" prefHeight="35.0" prefWidth="85.0" text="Carrello">
                <HBox.margin>
                   <Insets bottom="12.5" left="5.0" right="10.0" top="12.5" />
                </HBox.margin>

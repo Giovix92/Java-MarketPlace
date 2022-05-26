@@ -7,7 +7,6 @@ import com.uid.marketplace.progettomarketplace.client.Client;
 import com.uid.marketplace.progettomarketplace.client.ConnectionException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -31,8 +30,8 @@ public class AccessController {
     @FXML
     void AccessAction(ActionEvent event) throws Exception {
         if(!MailBar.getText().contains("@")) {
-            SceneHandler.getInstance().createError(AlertMessages.INVALID_EMAIL,
-                    AlertMessages.TITLE_REGISTRATION_ERROR);
+            SceneHandler.getInstance().createError(AlertMessages.INVALID_EMAIL_MSG,
+                    AlertMessages.REGISTRATION_ERROR_TITLE);
             return;
         }
         try {

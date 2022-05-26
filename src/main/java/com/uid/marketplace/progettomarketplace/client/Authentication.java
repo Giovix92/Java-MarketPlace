@@ -19,17 +19,19 @@ class Authentication {
     }
 
     private void resetTokens() {
+        client.email = null;
         client.user = null;
         client.token = null;
         client.refreshToken = null;
     }
 
     boolean logout() throws IOException, ConnectionException {
-        if(client.user == null || client.token == null || client.refreshToken == null) {
+        if(client.email == null || client.user == null || client.token == null || client.refreshToken == null) {
             resetTokens();
             return true;
         }
         QueryResult result = client.parseOutput(client.connect(client.url + "/logout?id=" + client.user + "&token=" + client.token), false);
+        System.out.println(result + System.lineSeparator() + "DA CANCELLARE");
         if(result.success()) {
             resetTokens();
             return true;

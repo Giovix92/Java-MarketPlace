@@ -2,14 +2,12 @@ package com.uid.marketplace.progettomarketplace.Controller;
 
 import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
-import com.uid.marketplace.progettomarketplace.Model.RegistrationManager;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import com.uid.marketplace.progettomarketplace.client.ConnectionException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -17,12 +15,10 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.util.Objects;
 
-public class RegistrationController {
-    @FXML
-    private ImageView HomePageButton;
+public class ChangePasswordController {
 
     @FXML
-    private TextField MailBar;
+    private ImageView HomePageButton;
 
     @FXML
     private PasswordField PasswordBar1;
@@ -31,18 +27,7 @@ public class RegistrationController {
     private PasswordField PasswordBar2;
 
     @FXML
-    void AccessAction(ActionEvent event) throws Exception {
-        SceneHandler.getInstance().setAccessScene();
-    }
-
-    @FXML
-    void RegisterAction(ActionEvent event) throws Exception {
-        if(!MailBar.getText().contains("@")) {
-            SceneHandler.getInstance().createError(AlertMessages.INVALID_EMAIL_MSG,
-                    AlertMessages.REGISTRATION_ERROR_TITLE);
-            return;
-        }
-
+    void ChangePasswordAction(ActionEvent event) throws Exception {
         if(PasswordBar1.getText().length() < 6) {
             SceneHandler.getInstance().createError(AlertMessages.PASSWORD_TOO_SHORT_MSG,
                     AlertMessages.REGISTRATION_ERROR_TITLE);
@@ -56,17 +41,14 @@ public class RegistrationController {
         }
 
         try {
-            if(Client.getInstance().register(MailBar.getText(), PasswordBar1.getText()) == null) {
-                SceneHandler.getInstance().createError(AlertMessages.EMAIL_ALREADY_USED_MSG,
-                        AlertMessages.REGISTRATION_ERROR_TITLE);
-            } else {
-                if(Client.getInstance().sendEmailVerification()) {
-                    RegistrationManager.getInstance().registrationHandler();
-                    SceneHandler.getInstance().createAlert(AlertMessages.REGISTRATION_COMPLETED_MSG,
-                            AlertMessages.REGISTRATION_COMPLETED_TITLE);
-                    SceneHandler.getInstance().setAccessScene();
-                }
+            if(Client.getInstance().changePassword(PasswordBar1.getText()) == null) {
+                SceneHandler.getInstance().createError("Impossibile cambiare la password! Riprova più tardi.", "Cambio Password");
             }
+            else{
+                SceneHandler.getInstance().createAlert("Hai appena cambiato la password del tuo account! Sarai reinderizzato all'homepage.", "Cambio password");
+                SceneHandler.getInstance().setHomePageScene();
+            }
+
         } catch (IOException | ConnectionException e) {
             if(!SceneHandler.getInstance().createErrorWithContacts(AlertMessages.CONNECTION_ERROR_MSG,
                     AlertMessages.CONNECTION_ERROR_TITLE)) {
@@ -77,8 +59,7 @@ public class RegistrationController {
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Condizioni generali di vendita");
-
+        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
     }
 
     @FXML
@@ -88,14 +69,12 @@ public class RegistrationController {
 
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
-
+        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
         SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
-
     }
 
     @FXML

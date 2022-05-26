@@ -9,22 +9,24 @@ import java.io.IOException;
 public class RegistrationManager {
 
     private static RegistrationManager instance = new RegistrationManager();
+
     private RegistrationManager() {}
+
     public static RegistrationManager getInstance() { return instance; }
 
     public void registrationHandler() {
         while(true) {
             boolean choice = SceneHandler.getInstance().createRegistrationVerificationDialog(
-                    AlertMessages.VERIFICATION_EMAIL_SENT,
-                    AlertMessages.ALMOST_DONE);
+                    AlertMessages.VERIFICATION_EMAIL_SENT_MSG,
+                    AlertMessages.ALMOST_DONE_TITLE);
             if(choice) {
                 try {
                     if(Client.getInstance().isEmailVerified())
                         return;
                     else
                         SceneHandler.getInstance().createError(
-                                AlertMessages.EMAIL_NOT_YET_VERIFIED,
-                                AlertMessages.TITLE_REGISTRATION_ERROR);
+                                AlertMessages.EMAIL_NOT_YET_VERIFIED_MSG,
+                                AlertMessages.REGISTRATION_ERROR_TITLE);
                 } catch (IOException | ConnectionException e) {
                     if(!SceneHandler.getInstance().createErrorWithContacts(
                             AlertMessages.CONNECTION_ERROR_MSG,
@@ -36,10 +38,12 @@ public class RegistrationManager {
                 try {
                     if(Client.getInstance().sendEmailVerification()) {
                         SceneHandler.getInstance().createAlert(
-                                AlertMessages.VERIFICATION_EMAIL_SENT,
-                                AlertMessages.ALMOST_DONE);
+                                AlertMessages.VERIFICATION_EMAIL_SENT_MSG,
+                                AlertMessages.ALMOST_DONE_TITLE);
                     } else {
-                        SceneHandler.getInstance().createError("Errore", "Errore");
+                        SceneHandler.getInstance().createAlert(
+                                AlertMessages.INSUFFICIENT_TIME_MSG,
+                                AlertMessages.INSUFFICIENT_TIME_TITLE);
                     }
                 } catch (IOException | ConnectionException e) {
                     if(!SceneHandler.getInstance().createErrorWithContacts(

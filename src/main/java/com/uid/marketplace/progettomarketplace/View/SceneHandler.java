@@ -33,7 +33,7 @@ public class SceneHandler {
     public void init(Stage stage){
         if(this.stage == null) {
             this.stage = stage;
-            this.stage.setMinWidth(1030);
+            this.stage.setMinWidth(1080);
             this.stage.setMinHeight(500);
             this.stage.setTitle("UID - MarketPlace");
         }
@@ -102,6 +102,14 @@ public class SceneHandler {
 
     public void setRecoveryPasswordScene() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("recovery-view.fxml"));
+        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
+        loadResources(scene);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setChangePasswordScene() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("changePassword-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);

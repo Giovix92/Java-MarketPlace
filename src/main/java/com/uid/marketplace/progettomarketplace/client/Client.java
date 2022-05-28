@@ -13,12 +13,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Client {
+
     final String url;
     String user;
     String token;
     String refreshToken;
 
+    String name;
     String email;
+
+    public void setName(String name) {this.name = name;}
+    public String getName() {return name;}
 
     public String getEmail() {
         return email;

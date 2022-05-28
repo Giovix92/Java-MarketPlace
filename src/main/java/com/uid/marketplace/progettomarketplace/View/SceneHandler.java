@@ -2,6 +2,9 @@ package com.uid.marketplace.progettomarketplace.View;
 
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
 import com.uid.marketplace.progettomarketplace.Settings;
+import com.uid.marketplace.progettomarketplace.client.Client;
+import com.uid.marketplace.progettomarketplace.client.ConnectionException;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -9,6 +12,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -36,6 +40,17 @@ public class SceneHandler {
             this.stage.setMinWidth(1080);
             this.stage.setMinHeight(500);
             this.stage.setTitle("UID - MarketPlace");
+            this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent windowEvent){
+                    try {
+                        if (Client.getInstance() != null)
+                            Client.getInstance().close();
+                        System.exit(0);
+                    } catch (Exception ignored) {
+                    }
+                }
+            });
         }
     }
 
@@ -110,6 +125,14 @@ public class SceneHandler {
 
     public void setChangePasswordScene() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("changePassword-view.fxml"));
+        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
+        loadResources(scene);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setCompleteAccountScene() throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("information-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);

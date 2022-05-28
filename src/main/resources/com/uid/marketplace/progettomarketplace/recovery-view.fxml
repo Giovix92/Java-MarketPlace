@@ -79,6 +79,9 @@
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
                   </TextField>
                   <Button mnemonicParsing="false" onAction="#RecoveryPasswordAction" text="Recupera Password" VBox.vgrow="NEVER">
                      <VBox.margin>

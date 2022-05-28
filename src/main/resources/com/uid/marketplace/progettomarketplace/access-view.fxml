@@ -59,6 +59,9 @@
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
                   </TextField>
                   <Label text="Password" VBox.vgrow="NEVER">
                      <font>
@@ -72,6 +75,9 @@
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
                   </PasswordField>
                   <Button mnemonicParsing="false" onAction="#AccessAction" text="Effettua l'accesso" VBox.vgrow="NEVER">
                      <VBox.margin>

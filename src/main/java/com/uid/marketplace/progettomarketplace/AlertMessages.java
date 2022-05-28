@@ -18,9 +18,15 @@ public interface AlertMessages {
     String CHANGE_RECOVERY_EMAIL_SENT_MSG = "Ti è stata inviata una mail al tuo indirizzo di posta elettronica." + System.lineSeparator() +
                                      "Segui le istruzioni al suo interno.";
     String RECOVERY_EMAIL_TITLE = "Recupero password";
-    String CHANGE_EMAIL_TITLE = "Cambio password";
+    String CHANGE_PASSWORD_TITLE = "Cambio password";
     String CHANGE_RECOVERY_EMAIL_ERROR_MSG = "La mail inserita non risulta associata a nessun account.";
     String INSUFFICIENT_TIME_MSG = "Per poter richiedere una nuova mail, il tempo di attesa minimo è di 5 minuti! Riprova piu' tardi.";
     String INSUFFICIENT_TIME_TITLE = "Tempo insufficiente!";
+    String CHANGE_PASSWORD_ERROR_MSG = "Impossibile cambiare la password! Riprova più tardi.";
+    String CHANGE_PASSWORD_MSG = "Hai appena cambiato la password del tuo account! Sarai reinderizzato all'homepage.";
+    String ACCOUNT_COMPLETED_MSG = "Hai completato il tuo account. Ora potrai effettuare gli acquisti!";
+    String ACCOUNT_COMPLETED_TITLE = "Account ultimato";
+    String ACCOUNT_COMPLETED_ERROR_MSG = "Impossibile completare il tuo account. Riprova più tardi!";
+    String ACCOUNT_COMPLETED_ERROR_TITLE = "Errore";
 }
 

@@ -42,10 +42,10 @@ public class ChangePasswordController {
 
         try {
             if(Client.getInstance().changePassword(PasswordBar1.getText()) == null) {
-                SceneHandler.getInstance().createError("Impossibile cambiare la password! Riprova più tardi.", "Cambio Password");
+                SceneHandler.getInstance().createError(AlertMessages.CHANGE_PASSWORD_ERROR_MSG, AlertMessages.CHANGE_PASSWORD_TITLE);
             }
             else{
-                SceneHandler.getInstance().createAlert("Hai appena cambiato la password del tuo account! Sarai reinderizzato all'homepage.", "Cambio password");
+                SceneHandler.getInstance().createAlert(AlertMessages.CHANGE_PASSWORD_MSG, AlertMessages.CHANGE_PASSWORD_TITLE);
                 SceneHandler.getInstance().setHomePageScene();
             }
 

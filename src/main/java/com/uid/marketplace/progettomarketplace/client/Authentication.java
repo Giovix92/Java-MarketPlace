@@ -31,7 +31,6 @@ class Authentication {
             return true;
         }
         QueryResult result = client.parseOutput(client.connect(client.url + "/logout?id=" + client.user + "&token=" + client.token), false);
-        System.out.println(result + System.lineSeparator() + "DA CANCELLARE");
         if(result.success()) {
             resetTokens();
             return true;

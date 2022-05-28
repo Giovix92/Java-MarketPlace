@@ -5,14 +5,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.ChangePasswordController">
+<AnchorPane prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.InformationController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,55 +30,68 @@
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" maxHeight="300.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            <VBox alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="405.0" style="-fx-border-color: grey;">
                <children>
-                  <Label text="Cambia Password" VBox.vgrow="NEVER">
+                  <Label text="Completa il tuo account" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="25.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="148.0" top="20.0" />
+                        <Insets right="80.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Password" VBox.vgrow="NEVER">
+                  <Label text="Nome" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="16.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="276.0" top="20.0" />
+                        <Insets right="303.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="PasswordBar1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0">
+                  <TextField fx:id="NameBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
-                  </PasswordField>
-                  <Label text="Verifica password" VBox.vgrow="NEVER">
+                  </TextField>
+                  <Label text="Cognome" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="16.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="218.0" top="15.0" />
+                        <Insets right="276.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="PasswordBar2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0">
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" top="5.0" />
-                     </VBox.margin>
+                  <TextField fx:id="SurnameBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
-                  </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#ChangePasswordAction" text="Cambia Password" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label layoutX="180.0" layoutY="125.0" text="Indirizzo">
+                     <font>
+                        <Font name="Roboto" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="285.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="AddressBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#CompleteAction" text="Completa" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -89,78 +102,24 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Hyperlink onAction="#ChargeAction" text="Ricarica il tuo saldo">
+                     <graphic>
+                        <Label text="Hai un coupon?">
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font></Label>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                  </Hyperlink>
                </children>
                <VBox.margin>
                   <Insets top="40.0" />
                </VBox.margin>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="2.0">
-               <children>
-                  <Label text="Consigli per una password sicura:">
-                     <font>
-                        <Font name="Roboto" size="21.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-88.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label lineSpacing="2.0" text="-  Usa almeno 8 caratteri, una combinazione alfanumerica">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label lineSpacing="2.0" text="    è la scelta migliore.">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-257.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="-  Non usare la stessa password usata in precedenza.">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-42.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="-  Non utilizzare termini presenti nel dizionario, il tuo">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-53.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="    nome, indirizzo e-mail, numero di telefono cellulare o">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-37.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="    altre informazioni personali facilmente reperibili.">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-65.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="-  Non usare la stessa password per più account online.">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-30.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
             </VBox>
          </children>
       </VBox>

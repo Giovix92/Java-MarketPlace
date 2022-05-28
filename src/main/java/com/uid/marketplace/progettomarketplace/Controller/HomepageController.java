@@ -4,7 +4,7 @@ import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
-import com.uid.marketplace.progettomarketplace.client.ConnectionException;
+import com.uid.marketplace.progettomarketplace.util.UserUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
@@ -38,6 +38,9 @@ public class HomepageController {
     private MenuItem ChangePasswordButton;
 
     @FXML
+    private MenuItem CompleteButton;
+
+    @FXML
     private MenuItem ExitButton;
 
     @FXML
@@ -57,8 +60,7 @@ public class HomepageController {
     }
 
     @FXML
-    void BalanceAction(ActionEvent event) {
-        //saldo
+    void BalanceAction(ActionEvent event) throws Exception {
     }
 
     @FXML
@@ -71,11 +73,17 @@ public class HomepageController {
         SceneHandler.getInstance().setChangePasswordScene();
     }
 
+
+    @FXML
+    void CompleteAction(ActionEvent event) throws Exception {
+        SceneHandler.getInstance().setCompleteAccountScene();
+    }
+
+
     @FXML
     void ExitAction(ActionEvent event) throws Exception {
         try {
             if(Client.getInstance().logout()){
-                System.out.println(Client.getInstance().getEmail());
                 SceneHandler.getInstance().setHomePageScene();
             }
             else{
@@ -137,7 +145,6 @@ public class HomepageController {
     @FXML
     void ClothesAction(ActionEvent event) {
         CategoriesButton.setText("Abbigliamento");
-
     }
 
     @FXML
@@ -186,11 +193,19 @@ public class HomepageController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
         Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
         HomePageButton.setImage(image);
 
         if (Client.getInstance().getEmail() != null){
+            if((UserUtil.getUserInfos(Client.getInstance().getEmail()))!=null){
+                CompleteButton.setVisible(false);
+            }
+            else{
+                CompleteButton.setVisible(true);
+            }
+
+
             AccessButton.setVisible(false);
             RegisterButton.setVisible(false);
             ChangeMailButton.setVisible(true);
@@ -203,9 +218,11 @@ public class HomepageController {
             RegisterButton.setVisible(true);
             ChangeMailButton.setVisible(false);
             ChangePasswordButton.setVisible(false);
+            CompleteButton.setVisible(false);
             BalanceButton.setVisible(false);
             ExitButton.setVisible(false);
         }
+
     }
 
 }

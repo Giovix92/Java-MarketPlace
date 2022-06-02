@@ -1,8 +1,9 @@
 package com.uid.marketplace.progettomarketplace.Controller;
 
-import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
+import com.uid.marketplace.progettomarketplace.Model.Coupon;
 import com.uid.marketplace.progettomarketplace.Model.User;
+import com.uid.marketplace.progettomarketplace.Model.Utente;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import com.uid.marketplace.progettomarketplace.client.util.JSONUtil;
@@ -19,41 +20,29 @@ import java.util.Objects;
 
 import static java.lang.Thread.sleep;
 
-public class InformationController {
-
-    @FXML
-    private TextField AddressBar;
+public class RechargeController {
 
     @FXML
     private ImageView HomePageButton;
 
     @FXML
-    private TextField NameBar;
+    private TextField CouponBar;
 
     @FXML
-    private TextField SurnameBar;
-
-    @FXML
-    void ChargeAction(ActionEvent event) {
-        //hyperlink per la ricarica del saldo istantaneo
-
+    void RechargeAction(ActionEvent event) throws Exception {
+        //tasto per ricaricare il saldo
+        Coupon coupon = new Coupon(CouponBar.getText());
+        JSONObject obj = JSONUtil.toJSON(coupon);
+        System.out.println(obj);
+        Client.getInstance().update("clienti", Utente.getInstance().getId(), obj,
+                reference -> {},
+                exc -> {});
     }
 
-    @FXML
-    void CompleteAction(ActionEvent event) throws Exception {
-        //tasto di completamento del profilo
-        User user = new User(Client.getInstance().getEmail(), NameBar.getText(), SurnameBar.getText(), AddressBar.getText(), 0, "false");
-        JSONObject obj = JSONUtil.toJSON(user);
-        Client.getInstance().insert("clienti", obj,
-            reference -> {},
-            exc -> {});
-        SceneHandler.getInstance().createAlert(AlertMessages.ACCOUNT_COMPLETED_MSG, AlertMessages.ACCOUNT_COMPLETED_TITLE);
-        SceneHandler.getInstance().setHomePageScene();
-    }
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Condizioni generali di vendita");
     }
 
     @FXML
@@ -61,9 +50,15 @@ public class InformationController {
         SceneHandler.getInstance().setHomePageScene();
     }
 
+
+    @FXML
+    void ServiceAction(ActionEvent event) {
+        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Contatti");
+    }
+
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
     }
 
     @FXML
@@ -76,5 +71,4 @@ public class InformationController {
         Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
         HomePageButton.setImage(image);
     }
-
 }

@@ -3,7 +3,6 @@ package com.uid.marketplace.progettomarketplace.View;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
 import com.uid.marketplace.progettomarketplace.Settings;
 import com.uid.marketplace.progettomarketplace.client.Client;
-import com.uid.marketplace.progettomarketplace.client.ConnectionException;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -55,7 +54,7 @@ public class SceneHandler {
     }
 
     public void setHomePageScene() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("homepage-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/homepage-view.fxml"));
         if (scene == null) scene = new Scene(fxmlLoader.load());
         else scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
@@ -99,7 +98,7 @@ public class SceneHandler {
     }
 
     public void setAccessScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("access-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/access-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);
@@ -108,7 +107,7 @@ public class SceneHandler {
 
 
     public void setRegistrationScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("registration-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/registration-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);
@@ -116,7 +115,7 @@ public class SceneHandler {
     }
 
     public void setRecoveryPasswordScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("recovery-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/recovery-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);
@@ -124,7 +123,7 @@ public class SceneHandler {
     }
 
     public void setChangePasswordScene() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("changePassword-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/changePassword-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);
@@ -132,7 +131,15 @@ public class SceneHandler {
     }
 
     public void setCompleteAccountScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("information-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/information-view.fxml"));
+        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
+        loadResources(scene);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setRechargeBalanceScene() throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/recharge-view.fxml"));
         scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);

@@ -2,9 +2,9 @@ package com.uid.marketplace.progettomarketplace.Controller;
 
 import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
+import com.uid.marketplace.progettomarketplace.Model.Utente;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
-import com.uid.marketplace.progettomarketplace.util.UserUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
@@ -16,6 +16,8 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
+
 public class HomepageController {
 
     @FXML
@@ -24,6 +26,12 @@ public class HomepageController {
 
     @FXML
     private MenuItem AccessButton;
+
+    @FXML
+    private MenuItem ControlPanelButton;
+
+    @FXML
+    private MenuItem CompleteButton;
 
     @FXML
     private MenuItem RegisterButton;
@@ -36,9 +44,6 @@ public class HomepageController {
 
     @FXML
     private MenuItem ChangePasswordButton;
-
-    @FXML
-    private MenuItem CompleteButton;
 
     @FXML
     private MenuItem ExitButton;
@@ -55,12 +60,23 @@ public class HomepageController {
     }
 
     @FXML
+    void AddAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CompleteAction(ActionEvent event) throws Exception {
+        SceneHandler.getInstance().setCompleteAccountScene();
+    }
+
+    @FXML
     void RegisterAction(ActionEvent event) throws Exception {
         SceneHandler.getInstance().setRegistrationScene();
     }
 
     @FXML
     void BalanceAction(ActionEvent event) throws Exception {
+        SceneHandler.getInstance().setRechargeBalanceScene();
     }
 
     @FXML
@@ -73,17 +89,11 @@ public class HomepageController {
         SceneHandler.getInstance().setChangePasswordScene();
     }
 
-
-    @FXML
-    void CompleteAction(ActionEvent event) throws Exception {
-        SceneHandler.getInstance().setCompleteAccountScene();
-    }
-
-
     @FXML
     void ExitAction(ActionEvent event) throws Exception {
         try {
             if(Client.getInstance().logout()){
+                Utente.getInstance().resetData();
                 SceneHandler.getInstance().setHomePageScene();
             }
             else{
@@ -198,16 +208,19 @@ public class HomepageController {
         HomePageButton.setImage(image);
 
         if (Client.getInstance().getEmail() != null){
-            if((UserUtil.getUserInfos(Client.getInstance().getEmail()))!=null){
-                CompleteButton.setVisible(false);
-            }
-            else{
-                CompleteButton.setVisible(true);
+
+            /* La query ci impiega un bel po' di tempo, e non sempre al primo try il nome e altro sono settati. */
+            int count = 0;
+            while(Utente.getInstance().getName() == null && count <= 2) {
+                Utente.getInstance().getData(Client.getInstance().getEmail());
+                sleep(75);
+                count++;
             }
 
-
+            CompleteButton.setVisible(Utente.getInstance().getName() == null);
             AccessButton.setVisible(false);
             RegisterButton.setVisible(false);
+            ControlPanelButton.setVisible(Utente.getInstance().getRole() != null && Utente.getInstance().getRole().equals("true"));
             ChangeMailButton.setVisible(true);
             ChangePasswordButton.setVisible(true);
             BalanceButton.setVisible(true);
@@ -219,6 +232,7 @@ public class HomepageController {
             ChangeMailButton.setVisible(false);
             ChangePasswordButton.setVisible(false);
             CompleteButton.setVisible(false);
+            ControlPanelButton.setVisible(false);
             BalanceButton.setVisible(false);
             ExitButton.setVisible(false);
         }

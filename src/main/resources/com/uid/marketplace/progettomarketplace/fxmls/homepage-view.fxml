@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="770.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.HomepageController">
+<AnchorPane prefHeight="770.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.HomepageController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="1024.0" AnchorPane.bottomAnchor="710.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -75,7 +75,8 @@
                 <MenuItem fx:id="RegisterButton" mnemonicParsing="false" onAction="#RegisterAction" text="Registrati" />
                   <MenuItem fx:id="ChangeMailButton" mnemonicParsing="false" onAction="#ChangeMailAction" text="Cambia e-mail" />
                   <MenuItem fx:id="ChangePasswordButton" mnemonicParsing="false" onAction="#ChangePasswordAction" text="Cambia password" />
-                  <MenuItem fx:id="CompleteButton" mnemonicParsing="false" onAction="#CompleteAction" text="Completa l'account" />
+                  <MenuItem fx:id="CompleteButton" mnemonicParsing="false" onAction="#CompleteAction" text="Completa il tuo account" />
+                  <MenuItem fx:id="ControlPanelButton" mnemonicParsing="false" onAction="#AddAction" text="Pannello di controllo" />
                   <MenuItem fx:id="BalanceButton" mnemonicParsing="false" onAction="#BalanceAction" text="Saldo" />
                   <MenuItem fx:id="ExitButton" mnemonicParsing="false" onAction="#ExitAction" text="Esci" />
               </items>

@@ -28,5 +28,6 @@ public interface AlertMessages {
     String ACCOUNT_COMPLETED_TITLE = "Account ultimato";
     String ACCOUNT_COMPLETED_ERROR_MSG = "Impossibile completare il tuo account. Riprova più tardi!";
     String ACCOUNT_COMPLETED_ERROR_TITLE = "Errore";
+
 }
 

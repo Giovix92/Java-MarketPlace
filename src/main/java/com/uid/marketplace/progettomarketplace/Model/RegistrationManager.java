@@ -4,6 +4,9 @@ import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import com.uid.marketplace.progettomarketplace.client.ConnectionException;
+import com.uid.marketplace.progettomarketplace.client.util.JSONUtil;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 public class RegistrationManager {

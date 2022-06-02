@@ -19,11 +19,7 @@ public class Client {
     String token;
     String refreshToken;
 
-    String name;
-    String email;
-
-    public void setName(String name) {this.name = name;}
-    public String getName() {return name;}
+   String email;
 
     public String getEmail() {
         return email;

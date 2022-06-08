@@ -1,24 +1,16 @@
 package com.uid.marketplace.progettomarketplace.Controller;
 
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
-import com.uid.marketplace.progettomarketplace.Model.Coupon;
-import com.uid.marketplace.progettomarketplace.Model.User;
-import com.uid.marketplace.progettomarketplace.Model.Utente;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
-import com.uid.marketplace.progettomarketplace.client.Client;
-import com.uid.marketplace.progettomarketplace.client.util.JSONUtil;
-import com.uid.marketplace.progettomarketplace.util.UserUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.json.JSONObject;
 
 import java.util.Objects;
 
-import static java.lang.Thread.sleep;
 
 public class RechargeController {
 
@@ -30,13 +22,13 @@ public class RechargeController {
 
     @FXML
     void RechargeAction(ActionEvent event) throws Exception {
-        //tasto per ricaricare il saldo
+        /*tasto per ricaricare il saldo, DA FARE LA FUNZIONE COME getName() PER CERCARE IL COUPON
         Coupon coupon = new Coupon(CouponBar.getText());
         JSONObject obj = JSONUtil.toJSON(coupon);
         System.out.println(obj);
         Client.getInstance().update("clienti", Utente.getInstance().getId(), obj,
                 reference -> {},
-                exc -> {});
+                exc -> {});*/
     }
 
 

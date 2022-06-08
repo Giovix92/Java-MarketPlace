@@ -9,10 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
@@ -144,6 +147,20 @@ public class SceneHandler {
         loadResources(scene);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void setControlPanelScene() throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/control_panel-view.fxml"));
+        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
+        loadResources(scene);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public String showFileChooser() throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Scegli l'immagine del prodotto");
+        return fileChooser.showOpenDialog(stage).getAbsolutePath();
     }
 
 }

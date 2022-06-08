@@ -10,5 +10,5 @@ public interface SuccessListener {
      *
      * @param databaseReference contains the result of the operation.
      * */
-    void onSuccess(DatabaseReference databaseReference);
+    void onSuccess(DatabaseReference databaseReference) throws Exception;
 }

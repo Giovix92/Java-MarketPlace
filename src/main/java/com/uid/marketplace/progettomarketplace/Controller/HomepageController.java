@@ -13,8 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static java.lang.Thread.sleep;
 
@@ -60,8 +63,8 @@ public class HomepageController {
     }
 
     @FXML
-    void AddAction(ActionEvent event) {
-
+    void ControlPanelAction(ActionEvent event) throws Exception {
+        SceneHandler.getInstance().setControlPanelScene();
     }
 
     @FXML
@@ -207,36 +210,62 @@ public class HomepageController {
         Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
         HomePageButton.setImage(image);
 
-        if (Client.getInstance().getEmail() != null){
-
-            /* La query ci impiega un bel po' di tempo, e non sempre al primo try il nome e altro sono settati. */
-            int count = 0;
-            while(Utente.getInstance().getName() == null && count <= 2) {
-                Utente.getInstance().getData(Client.getInstance().getEmail());
-                sleep(75);
-                count++;
-            }
-
-            CompleteButton.setVisible(Utente.getInstance().getName() == null);
-            AccessButton.setVisible(false);
-            RegisterButton.setVisible(false);
-            ControlPanelButton.setVisible(Utente.getInstance().getRole() != null && Utente.getInstance().getRole().equals("true"));
-            ChangeMailButton.setVisible(true);
-            ChangePasswordButton.setVisible(true);
-            BalanceButton.setVisible(true);
-            ExitButton.setVisible(true);
+        if(Client.getInstance().getEmail() != null) {
+            /**
+             * Creare nuova funzione per set dei bottoni etc (fatto).
+             * Compattare metodi dentro userutil in un solo metodo (fatto)
+             * Cambiare il metodo di get del ruolo dell'admin (preso dalla tabella authentication)
+             */
+            obtainData();
+            loggedIn();
+            showControlPanelButton(false);
+        } else {
+            notLoggedIn();
         }
-        else {
-            AccessButton.setVisible(true);
-            RegisterButton.setVisible(true);
-            ChangeMailButton.setVisible(false);
-            ChangePasswordButton.setVisible(false);
-            CompleteButton.setVisible(false);
-            ControlPanelButton.setVisible(false);
-            BalanceButton.setVisible(false);
-            ExitButton.setVisible(false);
-        }
-
     }
 
+    void notLoggedIn() {
+        AccessButton.setVisible(true);
+        RegisterButton.setVisible(true);
+        ChangeMailButton.setVisible(false);
+        ChangePasswordButton.setVisible(false);
+        CompleteButton.setVisible(false);
+        ControlPanelButton.setVisible(false);
+        BalanceButton.setVisible(false);
+        ExitButton.setVisible(false);
+    }
+
+    void loggedIn() {
+        AccessButton.setVisible(false);
+        RegisterButton.setVisible(false);
+        ChangeMailButton.setVisible(true);
+        ChangePasswordButton.setVisible(true);
+        BalanceButton.setVisible(true);
+        ExitButton.setVisible(true);
+    }
+
+    public void showCompleteButton(boolean choice) {
+        CompleteButton.setVisible(choice);
+    }
+
+    void showControlPanelButton(boolean choice) {
+        ControlPanelButton.setVisible(choice);
+    }
+
+    public void obtainData() {
+        Client.getInstance().get("clienti", ref -> {
+            JSONObject result = ref.result();
+            JSONArray jsonArray = result.getJSONArray("clienti");
+            for(int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                if(obj.getString("email").equals(Client.getInstance().getEmail())) {
+                    if(obj.isNull("nome") || obj.getString("nome").equals("")) {
+                        showCompleteButton(false);
+                        Utente.getInstance().setData(obj.getString("email"), obj.getString("nome"), obj.getString("cognome"),
+                                obj.getString("indirizzo"), obj.getString("saldo"));
+                    } else showCompleteButton(true);
+                }
+            }
+        }, exc -> exc.printStackTrace());
+    }
 }

@@ -6,7 +6,6 @@ import com.uid.marketplace.progettomarketplace.Model.User;
 import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import com.uid.marketplace.progettomarketplace.client.util.JSONUtil;
-import com.uid.marketplace.progettomarketplace.util.UserUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -16,8 +15,6 @@ import javafx.scene.input.MouseEvent;
 import org.json.JSONObject;
 
 import java.util.Objects;
-
-import static java.lang.Thread.sleep;
 
 public class InformationController {
 
@@ -42,7 +39,7 @@ public class InformationController {
     @FXML
     void CompleteAction(ActionEvent event) throws Exception {
         //tasto di completamento del profilo
-        User user = new User(Client.getInstance().getEmail(), NameBar.getText(), SurnameBar.getText(), AddressBar.getText(), 0, "false");
+        User user = new User(Client.getInstance().getEmail(), NameBar.getText(), SurnameBar.getText(), AddressBar.getText(), "0");
         JSONObject obj = JSONUtil.toJSON(user);
         Client.getInstance().insert("clienti", obj,
             reference -> {},

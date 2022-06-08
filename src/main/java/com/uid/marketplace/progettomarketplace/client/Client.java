@@ -8,18 +8,18 @@ import org.json.JSONObject;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Base64;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Client {
-
     final String url;
     String user;
     String token;
     String refreshToken;
 
-   String email;
+    String email;
 
     public String getEmail() {
         return email;
@@ -46,6 +46,7 @@ public class Client {
         Objects.requireNonNull(conn, "Connection cannot be null");
         InputStream is = new BufferedInputStream(conn.getInputStream());
         String res = new String(is.readAllBytes());
+        res = new String(Base64.getDecoder().decode(res));
         is.close();
         try {
             JSONObject object = new JSONObject(res);
@@ -224,7 +225,7 @@ public class Client {
                 if(successListener != null) {
                     successListener.onSuccess(databaseReference);
                 }
-            } catch (IOException | ConnectionException e) {
+            } catch (Exception e) {
                 if(errorListener != null)
                     errorListener.onError(e);
             }
@@ -252,7 +253,7 @@ public class Client {
                 if(successListener != null) {
                     successListener.onSuccess(databaseReference);
                 }
-            } catch (IOException | ConnectionException e) {
+            } catch (Exception e) {
                 if(errorListener != null)
                     errorListener.onError(e);
             }
@@ -277,7 +278,7 @@ public class Client {
                 if(successListener != null) {
                     successListener.onSuccess(databaseReference);
                 }
-            } catch (IOException | ConnectionException e) {
+            } catch (Exception e) {
                 if(errorListener != null)
                     errorListener.onError(e);
             }

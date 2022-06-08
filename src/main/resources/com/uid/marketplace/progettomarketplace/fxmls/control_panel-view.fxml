@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.ControlPanelController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
+               <children>
+                  <ImageView fx:id="HomePageButton" fitHeight="70.0" fitWidth="200.0" onMouseClicked="#HomeAction" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="405.0" style="-fx-border-color: grey;">
+               <children>
+                  <Label text="Aggiungi un coupon" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="Roboto" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="130.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Coupon key">
+                                 <font>
+                                    <Font name="Roboto" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="21.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="CouponBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="288.0">
+                                 <font>
+                                    <Font name="Roboto" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="20.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="170.0">
+                           <children>
+                              <Label text="Valore">
+                                 <font>
+                                    <Font name="Roboto" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="16.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="ValueBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="72.0">
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="20.0" top="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Roboto" size="13.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#AddCouponAction" text="Aggiungi" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets top="-5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="405.0" style="-fx-border-color: grey;">
+               <children>
+                  <Label text="Aggiungi un prodotto" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="Roboto" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="112.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Nome prodotto" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="Roboto" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="238.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="ProductNameBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Descrizione prodotto">
+                     <font>
+                        <Font name="Roboto" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="197.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="ProductDescriptionBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Venditore">
+                     <font>
+                        <Font name="Roboto" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="276.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="ProductSellerBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Prezzo">
+                     <font>
+                        <Font name="Roboto" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="297.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="ProductPriceBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#UploadImageAction" text="Carica immagine">
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#AddProductAction" text="Aggiungi">
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="670.0">
+         <children>
+            <Label text="UID - MarketPlace" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto" size="22.0" />
+               </font>
+            </Label>
+            <Label text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto" size="15.0" />
+               </font>
+            </Label>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Hyperlink onAction="#ConditionAction" text="Condizioni generali di vendita">
+                     <HBox.margin>
+                        <Insets left="-25.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink onAction="#SocietyAction" text="La nostra società">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink onAction="#PrivacyAction" text="Informativa sulla privacy">
+                     <HBox.margin>
+                        <Insets left="25.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

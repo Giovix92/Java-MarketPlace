@@ -26,8 +26,16 @@ public interface AlertMessages {
     String CHANGE_PASSWORD_MSG = "Hai appena cambiato la password del tuo account! Sarai reinderizzato all'homepage.";
     String ACCOUNT_COMPLETED_MSG = "Hai completato il tuo account. Ora potrai effettuare gli acquisti!";
     String ACCOUNT_COMPLETED_TITLE = "Account ultimato";
-    String ACCOUNT_COMPLETED_ERROR_MSG = "Impossibile completare il tuo account. Riprova più tardi!";
-    String ACCOUNT_COMPLETED_ERROR_TITLE = "Errore";
+    String COUPON_ADDED_MSG = "Il coupon è stato aggiunto correttamente!";
+    String COUPON_ADDED_TITLE = "Coupon aggiunto!";
+    String COUPON_EMPTY_ERROR_MSG = "Non hai inserito alcun coupon!";
+    String COUPON_EMPTY_ERROR_TITLE = "Coupon invalido";
+    String COUPON_EMPTY_VALUE_ERROR_MSG = "Non hai inserito alcun valore!";
+    String COUPON_EMPTY_VALUE_ERROR_TITLE = "Coupon invalido";
+    String SET_PRODUCT_IMAGE_ERROR_MSG = "Prima di poter caricare un prodotto bisogna scegliere la relativa immagine da visualizzare!";
+    String SET_PRODUCT_IMAGE_ERROR_TITLE = "Caricamento obbligatorio";
+    String PRODUCT_ADDED_MSG = "Il prodotto è stato aggiunto correttamente!";
+    String PRODUCT_ADDED_TITLE = "Prodotto aggiunto!";
 
 }
 

@@ -1,7 +1,5 @@
 package com.uid.marketplace.progettomarketplace.Model;
 
-import com.uid.marketplace.progettomarketplace.util.UserUtil;
-
 public class Utente {
 
     private static Utente instance = new Utente();
@@ -13,8 +11,7 @@ public class Utente {
     String name = null;
     String surname = null;
     String address = null;
-    Integer saldo = 0;
-    String role = null;
+    String saldo = "0";
 
     public String getId() {return id;}
 
@@ -32,31 +29,23 @@ public class Utente {
 
     public void setAddress(String address) {this.address = address;}
 
-    public Integer getSaldo() {return saldo;}
+    public String getSaldo() {return saldo;}
 
-    public void setSaldo(Integer saldo) {this.saldo = saldo;}
+    public void setSaldo(String saldo) {this.saldo = saldo;}
 
-    public String getRole() {return role;}
-
-    public void setRole(String role) {this.role = role;}
-
-    public void getData(String email) throws Exception {
-        this.name = UserUtil.getName(email);
-        this.id = UserUtil.getID(email);
-        this.role = UserUtil.getRole(email);
+    public void setData(String id, String name, String surname, String address, String saldo) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
+        this.saldo = saldo;
     }
 
     public void resetData() throws Exception {
-
         setId(null);
         setName(null);
         setSurname(null);
         setAddress(null);
-        setSaldo(0);
-        setRole(null);
-
+        setSaldo("0");
     }
-
-
-
 }

@@ -1,5 +1,6 @@
 package com.uid.marketplace.progettomarketplace.Controller;
 
+import com.sun.jdi.Value;
 import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
 import com.uid.marketplace.progettomarketplace.Model.Coupon;
@@ -59,7 +60,10 @@ public class ControlPanelController {
         Coupon coupon = new Coupon(CouponBar.getText(),ValueBar.getText());
         JSONObject obj = JSONUtil.toJSON(coupon);
         Client.getInstance().insert("coupon", obj,
-                reference -> {},
+                reference -> {
+                    CouponBar.setText("");
+                    ValueBar.setText("");
+                },
                 exc -> {});
         SceneHandler.getInstance().createAlert(AlertMessages.COUPON_ADDED_MSG, AlertMessages.COUPON_ADDED_TITLE);
     }

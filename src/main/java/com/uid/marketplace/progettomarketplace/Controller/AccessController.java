@@ -59,7 +59,7 @@ public class AccessController {
     }
 
     @FXML
-    void LostPasswordAction(ActionEvent event) throws IOException {
+    void LostPasswordAction(ActionEvent event) throws Exception {
         SceneHandler.getInstance().setRecoveryPasswordScene();
     }
 

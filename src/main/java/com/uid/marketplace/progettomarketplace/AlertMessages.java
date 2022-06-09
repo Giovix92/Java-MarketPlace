@@ -24,7 +24,7 @@ public interface AlertMessages {
     String INSUFFICIENT_TIME_TITLE = "Tempo insufficiente!";
     String CHANGE_PASSWORD_ERROR_MSG = "Impossibile cambiare la password! Riprova più tardi.";
     String CHANGE_PASSWORD_MSG = "Hai appena cambiato la password del tuo account! Sarai reinderizzato all'homepage.";
-    String ACCOUNT_COMPLETED_MSG = "Hai completato il tuo account. Ora potrai effettuare gli acquisti!";
+    String ACCOUNT_COMPLETED_MSG = "Hai completato il tuo account. Benvenuto in UID - MarketPlace!";
     String ACCOUNT_COMPLETED_TITLE = "Account ultimato";
     String COUPON_ADDED_MSG = "Il coupon è stato aggiunto correttamente!";
     String COUPON_ADDED_TITLE = "Coupon aggiunto!";
@@ -36,6 +36,10 @@ public interface AlertMessages {
     String SET_PRODUCT_IMAGE_ERROR_TITLE = "Caricamento obbligatorio";
     String PRODUCT_ADDED_MSG = "Il prodotto è stato aggiunto correttamente!";
     String PRODUCT_ADDED_TITLE = "Prodotto aggiunto!";
+
+    String BALANCE_UPDATED_MSG = "Il saldo è stato aggiornato correttamente. Ora puoi procedere agli acquisti!";
+    String BALANCE_UPDATED_TITLE = "Coupon aggiunto al tuo account";
+    String INVALID_COUPON_MSG = "Il coupon che hai inserito non è valido! Riprova.";
 
 }
 

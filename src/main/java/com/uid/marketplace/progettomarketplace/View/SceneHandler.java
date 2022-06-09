@@ -9,14 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -56,15 +53,6 @@ public class SceneHandler {
         }
     }
 
-    public void setHomePageScene() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/homepage-view.fxml"));
-        if (scene == null) scene = new Scene(fxmlLoader.load());
-        else scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void createAlert(String message, String title) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -100,64 +88,32 @@ public class SceneHandler {
         return result_tmp.orElse(resend) == confirm;
     }
 
-    public void setAccessScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/access-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
+    public void loadFXML(String FXMLPath) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource(FXMLPath));
+        if(scene == null) scene = new Scene(fxmlLoader.load());
+        else scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
         loadResources(scene);
         stage.setScene(scene);
         stage.show();
     }
 
+    public void setHomePageScene() throws Exception { loadFXML("fxmls/homepage-view.fxml"); }
 
-    public void setRegistrationScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/registration-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void setAccessScene() throws Exception { loadFXML("fxmls/access-view.fxml"); }
 
-    public void setRecoveryPasswordScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/recovery-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void setRegistrationScene() throws Exception { loadFXML("fxmls/registration-view.fxml"); }
 
-    public void setChangePasswordScene() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/changePassword-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void setRecoveryPasswordScene() throws Exception { loadFXML("fxmls/recovery-view.fxml"); }
 
-    public void setCompleteAccountScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/information-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void setChangePasswordScene() throws Exception { loadFXML("fxmls/changePassword-view.fxml"); }
 
-    public void setRechargeBalanceScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/recharge-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void setCompleteAccountScene() throws Exception { loadFXML("fxmls/information-view.fxml"); }
 
-    public void setControlPanelScene() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource("fxmls/control_panel-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
-        loadResources(scene);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void setRechargeBalanceScene() throws Exception { loadFXML("fxmls/recharge-view.fxml"); }
 
-    public String showFileChooser() throws Exception{
+    public void setControlPanelScene() throws Exception { loadFXML("fxmls/control_panel-view.fxml"); }
+
+    public String showFileChooser() throws Exception {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Scegli l'immagine del prodotto");
         return fileChooser.showOpenDialog(stage).getAbsolutePath();

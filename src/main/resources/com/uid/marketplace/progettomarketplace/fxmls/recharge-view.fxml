@@ -36,6 +36,29 @@
                   </Label>
                </children>
             </VBox>
+            <HBox prefHeight="50.0" prefWidth="1050.0">
+               <children>
+                  <Label text="Saldo attuale: ">
+                     <font>
+                        <Font name="Roboto" size="21.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="430.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="BalanceField">
+                     <font>
+                        <Font name="Roboto" size="21.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
             <VBox alignment="TOP_CENTER" maxHeight="205.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="405.0" style="-fx-border-color: grey;">
                <children>
                   <Label text="Ricarica il tuo saldo" VBox.vgrow="NEVER">
@@ -75,7 +98,7 @@
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: light grey;">

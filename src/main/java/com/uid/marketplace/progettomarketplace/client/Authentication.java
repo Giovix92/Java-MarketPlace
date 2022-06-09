@@ -23,6 +23,7 @@ class Authentication {
         client.user = null;
         client.token = null;
         client.refreshToken = null;
+        client.adminRole = false;
     }
 
     boolean logout() throws IOException, ConnectionException {
@@ -58,6 +59,7 @@ class Authentication {
                 client.user = output.getString("localId");
                 client.token = output.getString("idToken");
                 client.refreshToken = output.getString("refreshToken");
+                if(output.has("role")) client.adminRole = output.getString("role").equals("admin");
                 scheduleRefresh(Integer.parseInt(output.getString("expiresIn")));
                 return client.user;
             }

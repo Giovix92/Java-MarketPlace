@@ -7,6 +7,8 @@ import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -17,7 +19,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static java.lang.Thread.sleep;
 
@@ -25,7 +26,6 @@ public class HomepageController {
 
     @FXML
     private TextField SearchBar;
-        //BARRA DI RICERCA DEI PRODOTTI
 
     @FXML
     private MenuItem AccessButton;
@@ -95,19 +95,17 @@ public class HomepageController {
     @FXML
     void ExitAction(ActionEvent event) throws Exception {
         try {
-            if(Client.getInstance().logout()){
+            if(Client.getInstance().logout()) {
                 Utente.getInstance().resetData();
                 SceneHandler.getInstance().setHomePageScene();
-            }
-            else{
-                SceneHandler.getInstance().createError("errore", "errore");
-            }
-        } catch (Exception e){
+            } else SceneHandler.getInstance().createError(
+                    AlertMessages.CONNECTION_ERROR_MSG,
+                    AlertMessages.CONNECTION_ERROR_TITLE);
+        } catch (Exception e) {
             if(!SceneHandler.getInstance().createErrorWithContacts(
                     AlertMessages.CONNECTION_ERROR_MSG,
-                    AlertMessages.CONNECTION_ERROR_TITLE)) {
-                SceneHandler.getInstance().createAlert("Contatti", "Contatti");
-            }
+                    AlertMessages.CONNECTION_ERROR_TITLE))
+                        SceneHandler.getInstance().createAlert("Contatti", "Contatti");
         }
     }
 
@@ -205,25 +203,6 @@ public class HomepageController {
         CategoriesButton.setText("Per bambini");
     }
 
-    @FXML
-    void initialize() throws Exception {
-        Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
-        HomePageButton.setImage(image);
-
-        if(Client.getInstance().getEmail() != null) {
-            /**
-             * Creare nuova funzione per set dei bottoni etc (fatto).
-             * Compattare metodi dentro userutil in un solo metodo (fatto)
-             * Cambiare il metodo di get del ruolo dell'admin (preso dalla tabella authentication)
-             */
-            obtainData();
-            loggedIn();
-            showControlPanelButton(false);
-        } else {
-            notLoggedIn();
-        }
-    }
-
     void notLoggedIn() {
         AccessButton.setVisible(true);
         RegisterButton.setVisible(true);
@@ -239,33 +218,43 @@ public class HomepageController {
         AccessButton.setVisible(false);
         RegisterButton.setVisible(false);
         ChangeMailButton.setVisible(true);
+        ControlPanelButton.setVisible(Client.getInstance().getAdminRole());
         ChangePasswordButton.setVisible(true);
-        BalanceButton.setVisible(true);
         ExitButton.setVisible(true);
     }
 
-    public void showCompleteButton(boolean choice) {
-        CompleteButton.setVisible(choice);
-    }
+    public void showCompleteButton(boolean choice) { CompleteButton.setVisible(choice); }
 
-    void showControlPanelButton(boolean choice) {
-        ControlPanelButton.setVisible(choice);
-    }
+    public void showBalanceButton(boolean choice) { BalanceButton.setVisible(choice); }
 
     public void obtainData() {
+        showCompleteButton(true);
+        showBalanceButton(false);
         Client.getInstance().get("clienti", ref -> {
             JSONObject result = ref.result();
             JSONArray jsonArray = result.getJSONArray("clienti");
             for(int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 if(obj.getString("email").equals(Client.getInstance().getEmail())) {
-                    if(obj.isNull("nome") || obj.getString("nome").equals("")) {
+                    if(!obj.isNull("nome")) {
                         showCompleteButton(false);
+                        showBalanceButton(true);
                         Utente.getInstance().setData(obj.getString("email"), obj.getString("nome"), obj.getString("cognome"),
                                 obj.getString("indirizzo"), obj.getString("saldo"));
-                    } else showCompleteButton(true);
+                    }
                 }
             }
-        }, exc -> exc.printStackTrace());
+        }, exc -> {});
+    }
+
+    @FXML
+    void initialize() throws Exception {
+        Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
+        HomePageButton.setImage(image);
+
+        if(Client.getInstance().getEmail() != null) {
+            obtainData();
+            loggedIn();
+        } else notLoggedIn();
     }
 }

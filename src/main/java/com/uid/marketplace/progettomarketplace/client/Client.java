@@ -18,12 +18,13 @@ public class Client {
     String user;
     String token;
     String refreshToken;
-
     String email;
+    boolean adminRole = false;
 
     public String getEmail() {
         return email;
     }
+    public Boolean getAdminRole() { return adminRole; }
 
     private final Authentication authentication;
     private final DatabaseQuery databaseQuery;

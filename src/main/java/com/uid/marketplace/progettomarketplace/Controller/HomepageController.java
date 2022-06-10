@@ -29,7 +29,7 @@ public class HomepageController {
     private TextField SearchBar;
 
     @FXML
-    private MenuItem AccessButton;
+    private MenuItem LoginButton;
 
     @FXML
     private MenuItem ControlPanelButton;
@@ -203,7 +203,7 @@ public class HomepageController {
     }
 
     void notLoggedIn() {
-        AccessButton.setVisible(true);
+        LoginButton.setVisible(true);
         RegisterButton.setVisible(true);
         ChangeMailButton.setVisible(false);
         ChangePasswordButton.setVisible(false);
@@ -214,7 +214,7 @@ public class HomepageController {
     }
 
     void loggedIn() {
-        AccessButton.setVisible(false);
+        LoginButton.setVisible(false);
         RegisterButton.setVisible(false);
         ChangeMailButton.setVisible(true);
         ControlPanelButton.setVisible(Client.getInstance().getAdminRole());

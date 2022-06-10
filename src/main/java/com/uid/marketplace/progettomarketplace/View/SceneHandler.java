@@ -38,7 +38,7 @@ public class SceneHandler {
         if(this.stage == null) {
             this.stage = stage;
             this.stage.setMinWidth(1080);
-            this.stage.setMinHeight(500);
+            this.stage.setMinHeight(770);
             this.stage.setTitle("UID - MarketPlace");
             this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
@@ -98,6 +98,8 @@ public class SceneHandler {
         FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource(FXMLPath));
         if(scene == null) scene = new Scene(fxmlLoader.load());
         else scene = new Scene(fxmlLoader.load(), scene.getWidth(), scene.getHeight());
+        this.stage.setMinWidth(1080);
+        this.stage.setMinHeight(770);
         loadResources(scene);
         stage.setScene(scene);
         stage.show();

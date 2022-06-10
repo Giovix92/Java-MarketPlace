@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RechargeController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RechargeController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
+            <VBox fx:id="headerSection" alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
                <children>
                   <ImageView fx:id="HomePageButton" fitHeight="70.0" fitWidth="200.0" onMouseClicked="#HomeAction" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
@@ -26,7 +26,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <Label alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
+                  <Label fx:id="returnToHomeLabel" alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
@@ -36,30 +36,15 @@
                   </Label>
                </children>
             </VBox>
-            <HBox prefHeight="50.0" prefWidth="1050.0">
-               <children>
-                  <Label text="Saldo attuale: ">
-                     <font>
-                        <Font name="Roboto" size="21.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="430.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="BalanceField">
-                     <font>
-                        <Font name="Roboto" size="21.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
+            <Label fx:id="BalanceField" alignment="CENTER" textAlignment="CENTER">
+               <font>
+                  <Font name="Roboto" size="21.0" />
+               </font>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
-            </HBox>
-            <VBox alignment="TOP_CENTER" maxHeight="205.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            </Label>
+            <VBox fx:id="BalanceRechargeVBOX" alignment="TOP_CENTER" maxHeight="205.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="405.0" style="-fx-border-color: grey;">
                <children>
                   <Label text="Ricarica il tuo saldo" VBox.vgrow="NEVER">
                      <font>
@@ -157,7 +142,7 @@
             </VBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="670.0">
+      <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label text="UID - MarketPlace" VBox.vgrow="NEVER">
                <VBox.margin>

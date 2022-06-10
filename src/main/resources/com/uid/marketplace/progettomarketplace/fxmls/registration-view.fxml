@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RegistrationController">
+<AnchorPane fx:id="anchorPane" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RegistrationController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
+            <VBox fx:id="headerSection" alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
                <children>
                   <ImageView fx:id="HomePageButton" fitHeight="70.0" fitWidth="200.0" onMouseClicked="#HomeAction" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
@@ -27,14 +27,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <Label alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
+                  <Label fx:id="returnToHomeLabel" alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            <VBox fx:id="RegistrationVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="405.0" style="-fx-border-color: grey;">
                <children>
                   <Label text="Crea account" VBox.vgrow="NEVER">
                      <font>
@@ -92,7 +92,7 @@
                         <Font name="Roboto" size="13.0" />
                      </font>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#RegisterAction" text="Registrati" VBox.vgrow="NEVER">
+                  <Button fx:id="RegistrationButton" mnemonicParsing="false" onAction="#RegisterAction" text="Registrati" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -124,7 +124,7 @@
             </VBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="670.0">
+      <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label text="UID - MarketPlace" VBox.vgrow="NEVER">
                <VBox.margin>

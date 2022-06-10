@@ -81,7 +81,7 @@ public class RechargeController {
         if(currentBalance == Double.parseDouble(Utente.getInstance().getSaldo()))
             SceneHandler.getInstance().createError(AlertMessages.INVALID_COUPON_MSG, AlertMessages.COUPON_EMPTY_ERROR_TITLE);
         else {
-            BalanceField.setText(Double.parseDouble(Utente.getInstance().getSaldo()) + "€");
+            BalanceField.setText("Saldo attuale: " + Double.parseDouble(Utente.getInstance().getSaldo()) + "€");
             CouponBar.setText("");
             SceneHandler.getInstance().createAlert(AlertMessages.BALANCE_UPDATED_MSG, AlertMessages.BALANCE_UPDATED_TITLE);
         }
@@ -119,6 +119,6 @@ public class RechargeController {
         Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
         HomePageButton.setImage(image);
 
-        BalanceField.setText(Double.parseDouble(Utente.getInstance().getSaldo()) + "€");
+        BalanceField.setText("Saldo attuale: " + Double.parseDouble(Utente.getInstance().getSaldo()) + "€");
     }
 }

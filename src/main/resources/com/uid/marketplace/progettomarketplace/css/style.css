@@ -1,0 +1,67 @@
+* {
+    -fx-font-family: 'Roboto';
+}
+
+#anchorPane {
+    -fx-background-color: #e3e3e3;
+}
+
+#headerSection {
+    -fx-background-color: #1b4e8d;
+}
+
+#AccessButton {
+    -fx-background-color: #FADC38;
+    -fx-background-radius: 5;
+}
+
+#RegistrationButton {
+    -fx-background-color: #ff9900;
+    -fx-background-radius: 5;
+}
+
+#AccessVBOX, #RegistrationVBOX, #PasswordChangeVBOX,
+#InfosRequestVBOX, #BalanceRechargeVBOX, #PasswordRecoveryVBOX,
+#AddCouponVBOX, #AddProductVBOX {
+    -fx-border-color: #c2c1be;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+#CategoriesButton, #SearchBar {
+    -fx-background-color: white;
+    -fx-background-size: 95%;
+}
+
+#SearchButton {
+    -fx-background-color: #ff9900;
+}
+
+#SearchButton, #SearchBar, #CategoriesButton {
+    -fx-background-radius: 5;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-background-insets: 95%;
+}
+
+#returnToHomeLabel {
+    -fx-text-fill: #ffffff;
+}
+
+#AccountMenuButton .label {
+    -fx-text-fill: white;
+}
+
+#AccountMenuButton, #CartButton, #OrderButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+#AccountMenuButton .menu-item > .label {
+    -fx-text-fill: black;
+}
+
+#lowerSection {
+    /*TODO: Fare gradiente*/
+}

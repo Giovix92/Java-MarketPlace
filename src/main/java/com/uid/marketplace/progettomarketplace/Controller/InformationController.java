@@ -50,7 +50,7 @@ public class InformationController {
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showTOSAlert();
     }
 
     @FXML
@@ -60,12 +60,12 @@ public class InformationController {
 
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showSocietyAlert();
     }
 
     @FXML

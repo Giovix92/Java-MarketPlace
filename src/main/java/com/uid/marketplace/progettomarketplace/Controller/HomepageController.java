@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import static java.lang.Thread.sleep;
@@ -84,7 +85,7 @@ public class HomepageController {
 
     @FXML
     void ChangeMailAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert("contatti", "contatti");
+        SceneHandler.getInstance().showHelpAlert();
     }
 
     @FXML
@@ -105,7 +106,7 @@ public class HomepageController {
             if(!SceneHandler.getInstance().createErrorWithContacts(
                     AlertMessages.CONNECTION_ERROR_MSG,
                     AlertMessages.CONNECTION_ERROR_TITLE))
-                        SceneHandler.getInstance().createAlert("Contatti", "Contatti");
+                        SceneHandler.getInstance().showHelpAlert();
         }
     }
 
@@ -117,7 +118,7 @@ public class HomepageController {
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert("DA COMPLETARE", "Condizioni generali di vendita");
+        SceneHandler.getInstance().showTOSAlert();
     }
 
     @FXML
@@ -132,9 +133,8 @@ public class HomepageController {
     }
 
     @FXML
-    void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
-
+    void PrivacyAction(ActionEvent event) throws IOException {
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
     }
 
     @FXML
@@ -144,8 +144,7 @@ public class HomepageController {
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
-
+        SceneHandler.getInstance().showSocietyAlert();
     }
 
     @FXML

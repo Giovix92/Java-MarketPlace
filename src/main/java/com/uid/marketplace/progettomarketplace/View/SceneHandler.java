@@ -1,5 +1,6 @@
 package com.uid.marketplace.progettomarketplace.View;
 
+import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
 import com.uid.marketplace.progettomarketplace.Settings;
 import com.uid.marketplace.progettomarketplace.client.Client;
@@ -87,6 +88,11 @@ public class SceneHandler {
         Optional<ButtonType> result_tmp = alert.showAndWait();
         return result_tmp.orElse(resend) == confirm;
     }
+
+    public void showPrivacyPolicyAlert() { createAlert(AlertMessages.PRIVACY_POLICY_MSG, AlertMessages.PRIVACY_POLICY_TITLE); }
+    public void showSocietyAlert() { createAlert(AlertMessages.SOCIETY_MSG, AlertMessages.SOCIETY_TITLE); }
+    public void showTOSAlert() { createAlert(AlertMessages.TOS_MSG, AlertMessages.TOS_TITLE); }
+    public void showHelpAlert() { createAlert(AlertMessages.HELP_MSG, AlertMessages.HELP_TITLE); }
 
     public void loadFXML(String FXMLPath) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource(FXMLPath));

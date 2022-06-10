@@ -34,7 +34,7 @@ public class RegistrationManager {
                     if(!SceneHandler.getInstance().createErrorWithContacts(
                             AlertMessages.CONNECTION_ERROR_MSG,
                             AlertMessages.CONNECTION_ERROR_TITLE)) {
-                        SceneHandler.getInstance().createAlert("Contatti", "Contatti");
+                        SceneHandler.getInstance().showHelpAlert();
                     }
                 }
             } else {
@@ -52,7 +52,7 @@ public class RegistrationManager {
                     if(!SceneHandler.getInstance().createErrorWithContacts(
                             AlertMessages.CONNECTION_ERROR_MSG,
                             AlertMessages.CONNECTION_ERROR_TITLE)) {
-                        SceneHandler.getInstance().createAlert("Contatti", "Contatti");
+                        SceneHandler.getInstance().showHelpAlert();
                     }
                 }
             }

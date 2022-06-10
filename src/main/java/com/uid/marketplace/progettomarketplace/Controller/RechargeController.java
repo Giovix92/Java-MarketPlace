@@ -54,13 +54,13 @@ public class RechargeController {
                                 System.out.println("[DEBUG] Email found, now going to pick its id.");
                                 String idToBeUpdated = obj2.getString("element_id");
                                 System.out.println("[DEBUG] ID of the user: " + idToBeUpdated);
-                                double oldBalance = Double.parseDouble(obj2.getString("saldo"));
-                                oldBalance += toBeAdded;
-                                System.out.println("[DEBUG] New balance: " + oldBalance);
+                                double userBalance = Double.parseDouble(obj2.getString("saldo"));
+                                userBalance += toBeAdded;
+                                System.out.println("[DEBUG] New balance: " + userBalance);
                                 User user = new User(Client.getInstance().getEmail(), Utente.getInstance().getName(),
-                                        Utente.getInstance().getSurname(), Utente.getInstance().getAddress(), String.valueOf(oldBalance));
+                                        Utente.getInstance().getSurname(), Utente.getInstance().getAddress(), String.valueOf(userBalance));
                                 JSONObject newJson = JSONUtil.toJSON(user);
-                                Utente.getInstance().setSaldo(String.valueOf(oldBalance));
+                                Utente.getInstance().setSaldo(String.valueOf(userBalance));
                                 System.out.println("[DEBUG] JSON: " + newJson);
                                 Client.getInstance().update("clienti", idToBeUpdated, newJson,
                                         ref3 -> {
@@ -90,7 +90,7 @@ public class RechargeController {
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Condizioni generali di vendita");
+        SceneHandler.getInstance().showTOSAlert();
     }
 
     @FXML
@@ -101,17 +101,17 @@ public class RechargeController {
 
     @FXML
     void ServiceAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Contatti");
+        SceneHandler.getInstance().showHelpAlert();
     }
 
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showSocietyAlert();
     }
 
     @FXML

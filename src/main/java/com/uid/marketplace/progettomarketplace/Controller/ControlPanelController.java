@@ -103,7 +103,7 @@ public class ControlPanelController {
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Condizioni generali di vendita");
+        SceneHandler.getInstance().showTOSAlert();
     }
 
     @FXML
@@ -113,12 +113,12 @@ public class ControlPanelController {
 
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showSocietyAlert();
     }
 
     @FXML

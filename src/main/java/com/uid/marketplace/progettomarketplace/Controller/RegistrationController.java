@@ -70,14 +70,14 @@ public class RegistrationController {
         } catch (IOException | ConnectionException e) {
             if(!SceneHandler.getInstance().createErrorWithContacts(AlertMessages.CONNECTION_ERROR_MSG,
                     AlertMessages.CONNECTION_ERROR_TITLE)) {
-                SceneHandler.getInstance().createAlert("Contatti", "Contatti");
+                SceneHandler.getInstance().showHelpAlert();
             }
         }
     }
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Condizioni generali di vendita");
+        SceneHandler.getInstance().showTOSAlert();
 
     }
 
@@ -88,13 +88,13 @@ public class RegistrationController {
 
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
 
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showSocietyAlert();
 
     }
 

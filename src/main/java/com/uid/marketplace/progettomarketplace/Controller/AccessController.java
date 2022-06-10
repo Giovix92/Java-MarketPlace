@@ -43,14 +43,14 @@ public class AccessController {
         } catch (IOException | ConnectionException e) {
             if(!SceneHandler.getInstance().createErrorWithContacts(AlertMessages.CONNECTION_ERROR_MSG,
                     AlertMessages.CONNECTION_ERROR_TITLE)) {
-                SceneHandler.getInstance().createAlert("Contatti", "Contatti");
+                SceneHandler.getInstance().showHelpAlert();
             }
         }
     }
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Condizioni generali di vendita");
+        SceneHandler.getInstance().showTOSAlert();
     }
 
     @FXML
@@ -65,7 +65,7 @@ public class AccessController {
 
     @FXML
     void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "Informativa sulla privacy");
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
     }
 
     @FXML
@@ -75,7 +75,7 @@ public class AccessController {
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showSocietyAlert();;
     }
 
     @FXML

@@ -52,14 +52,14 @@ public class ChangePasswordController {
         } catch (IOException | ConnectionException e) {
             if(!SceneHandler.getInstance().createErrorWithContacts(AlertMessages.CONNECTION_ERROR_MSG,
                     AlertMessages.CONNECTION_ERROR_TITLE)) {
-                SceneHandler.getInstance().createAlert("Contatti", "Contatti");
+                SceneHandler.getInstance().showHelpAlert();
             }
         }
     }
 
     @FXML
     void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showTOSAlert();
     }
 
     @FXML
@@ -68,13 +68,13 @@ public class ChangePasswordController {
     }
 
     @FXML
-    void PrivacyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+    void PrivacyAction(ActionEvent event) throws IOException {
+        SceneHandler.getInstance().showPrivacyPolicyAlert();
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
-        SceneHandler.getInstance().createAlert( "DA COMPLETARE", "La nostra società");
+        SceneHandler.getInstance().showSocietyAlert();
     }
 
     @FXML

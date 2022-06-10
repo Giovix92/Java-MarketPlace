@@ -40,6 +40,87 @@ public interface AlertMessages {
     String BALANCE_UPDATED_MSG = "Il saldo è stato aggiornato correttamente. Ora puoi procedere agli acquisti!";
     String BALANCE_UPDATED_TITLE = "Coupon aggiunto al tuo account";
     String INVALID_COUPON_MSG = "Il coupon che hai inserito non è valido! Riprova.";
+    // TODO: Tradurre in italiano
+    String PRIVACY_POLICY_MSG = """
+            0. Informativa sulla privacy
+            UID - Marketplace prende sul serio la vostra privacy.
+            Per proteggere al meglio la vostra privacy, forniamo la presente informativa sulla privacy
+            che spiega il modo in cui le informazioni personali vengono raccolte e utilizzate.
+          
+            1. Link a siti web di terze parti
+            Abbiamo incluso dei link in questa applicazione per il vostro uso e riferimento.
+            Non siamo responsabili delle politiche sulla privacy di questi siti web.
+            L'utente deve essere consapevole che le politiche sulla privacy di questi siti web
+            possono differire dalle nostre.
 
+            2. Sicurezza
+            La sicurezza dei vostri dati personali è importante per noi,
+            ma ricordate che nessun metodo di trasmissione su Internet,
+            o metodo di archiviazione elettronica è sicuro al 100%.
+            Sebbene ci sforziamo di utilizzare mezzi commercialmente accettabili per proteggere i vostri
+            i vostri dati personali, non possiamo garantirne l'assoluta sicurezza.
+                       
+            3. Modifiche alla presente Informativa sulla privacy
+            La presente Informativa sulla privacy è in vigore a partire dal 9/06/2022 
+            e rimarrà in vigore tranne che per quanto riguarda a eventuali modifiche delle sue disposizioni in futuro,
+            che entreranno in vigore immediatamente dopo essere state pubblicate su questa pagina.
+            Ci riserviamo il diritto di aggiornare o modificare la nostra Informativa sulla privacy in qualsiasi momento.
+            e l'utente dovrebbe controllare periodicamente la presente Informativa sulla privacy.
+            Qualora dovessimo apportare modifiche sostanziali alla presente Informativa sulla privacy, 
+            vi informeremo attraverso l'indirizzo e-mail che ci avete fornito,
+            o inserendo un avviso in evidenza sulla nostra app.
+            """;
+    String PRIVACY_POLICY_TITLE = "Informativa sulla privacy";
+    String SOCIETY_MSG = """
+            UID - MarketPlace è un marketplace scritto in Java
+            sviluppato e gestito da un team
+            di 3 studenti dell'Università della Calabria.
+            Per maggiori informazioni, guarda la repository su GitHub:
+            https://www.github.com/Giovix92/Java-MarketPlace,
+            oppure scrivici una mail a:
+            Giovanni Gualtieri: giovix92@giovix92.com
+            Gaetano Masci: mascigaetano@gmail.com
+            Jacopo Garofalo: jacopogarofalo02@gmail.com
+            """;
+    String SOCIETY_TITLE = "La nostra società";
+    String HELP_MSG = """
+            Per assistenza, cambio mail, informazioni sull'utilizzo etc.
+            puoi contattarci qui:
+            
+            Giovanni Gualtieri: giovix92@giovix92.com
+            Gaetano Masci: mascigaetano@gmail.com
+            Jacopo Garofalo: jacopogarofalo02@gmail.com
+            """;
+    String HELP_TITLE = "Contatti";
+    String TOS_MSG = """
+            Condizioni Generali di Vendita
+            
+            Art. 1 - Disposizioni generali
+            1. L'utente navigando in quest'area accede
+            a UID - MarketPlace mediante l'utilizzo di un applicativo.
+            La navigazione e la trasmissione di un ordine di acquisto sul sito
+            comportano l'accettazione delle Condizioni e delle Politiche di
+            Protezione dei Dati adottate dal sito stesso ivi indicate.
+            2. Le presenti Condizioni Generali di Vendita si applicano alla vendita 
+            di prodotti con esclusivo riferimento agli acquisti effettuati sul sito 
+            conformemente alle disposizioni della Parte III, Titolo III, Capo I, 
+            Codice del Consumo (D.lgs. n. 206/05 modificato dal D.lgs. n. 21/14 e D.lgs. 70/03) 
+            da parte di UID - MarketPlace.
+            3. L'utente è tenuto, prima di accedere ai prodotti forniti dal sito, 
+            a leggere le presenti Condizioni Generali di Vendita che si intendono generalmente 
+            ed inequivocabilmente accettate al momento dell'acquisto.
+            4. Si invita l'utente a scaricare e stampare una copia del modulo d'acquisto e 
+            delle presenti Condizioni Generali di Vendita i cui termini
+            si riserva di modificare unilateralmente e senza alcun preavviso.
+            
+            Art. 2 - Oggetto
+            1. Le presenti Condizioni Generali di Vendita disciplinano l'offerta, l'inoltro e 
+            l'accettazione di ordini d'acquisto di prodotti su UID - MarketPlace, e non disciplinano, 
+            invece, la fornitura di servizi o la vendita di prodotti da parte di soggetti diversi dal venditore 
+            che siano presenti sul medesimo sito tramite link, banner o altri collegamenti ipertestuali.
+            2. Prima di inoltrare ordini ed acquistare prodotti e servizi da soggetti diversi, 
+            suggeriamo di verificare le loro condizioni di vendita.
+            """;
+    String TOS_TITLE = "Condizioni generali di vendita";
 }
 

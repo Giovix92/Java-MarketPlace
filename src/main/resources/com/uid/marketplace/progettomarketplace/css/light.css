@@ -1,0 +1,15 @@
+* {
+    primaryButtonColor: linear-gradient(to top, #EFC14C, #fffbf5);
+    secondaryButtonColor: linear-gradient(to top, #e38e00, #fffbf5);
+    searchButtonColor: #e38e00;
+    backgroundColor: #e3e3e3;
+    headerColor: #222f3e;
+    headerElementsColor: #ffffff;
+    headerBorderElementsColor: #000000;
+    buttonBorderColor: #a8a7a5;
+    VBOXBorderColor: #c2c1be;
+    VBOXBackgroundColor: #ffffff;
+    labelColor: #ffffff;
+    menuItemLabelColor: #000000;
+    lowerSectionColor: linear-gradient(to top, #b9b9b9, #e3e3e3);
+}

@@ -50,7 +50,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <TextField fx:id="SearchBar" prefHeight="35.0" prefWidth="500.0">
+            <TextField fx:id="SearchBar" prefHeight="35.0" prefWidth="480.0">
                <HBox.margin>
                   <Insets bottom="12.5" top="12.5" />
                </HBox.margin>
@@ -69,12 +69,12 @@
                   <Font name="Roboto" size="13.0" />
                </font>
             </Button>
-            <MenuButton fx:id="AccountMenuButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="85.0" text="Account">
+            <MenuButton fx:id="AccountMenuButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="105.0" text="Account">
               <items>
                 <MenuItem fx:id="LoginButton" mnemonicParsing="false" onAction="#AccessAction" text="Accedi" />
                 <MenuItem fx:id="RegisterButton" mnemonicParsing="false" onAction="#RegisterAction" text="Registrati" />
                   <MenuItem fx:id="ChangeMailButton" mnemonicParsing="false" onAction="#ChangeMailAction" text="Cambia e-mail" />
-                  <MenuItem fx:id="ChangePasswordButton" mnemonicParsing="false" onAction="#ChangePasswordAction" text="Cambia password" />
+                  <MenuItem fx:id="RefactorPasswordButton" mnemonicParsing="false" onAction="#ChangePasswordAction" text="Cambia password" />
                   <MenuItem fx:id="CompleteButton" mnemonicParsing="false" onAction="#CompleteAction" text="Completa il tuo account" />
                   <MenuItem fx:id="ControlPanelButton" mnemonicParsing="false" onAction="#ControlPanelAction" text="Pannello di controllo" />
                   <MenuItem fx:id="BalanceButton" mnemonicParsing="false" onAction="#BalanceAction" text="Saldo" />
@@ -86,6 +86,9 @@
                <font>
                   <Font name="Roboto" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </MenuButton>
             <Button fx:id="OrderButton" mnemonicParsing="false" onAction="#OrderAction" prefHeight="35.0" prefWidth="85.0" text="Ordini">
                <HBox.margin>

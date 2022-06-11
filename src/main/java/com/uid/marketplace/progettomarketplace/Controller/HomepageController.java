@@ -7,26 +7,34 @@ import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
 import java.util.Objects;
-
-import static java.lang.Thread.sleep;
 
 public class HomepageController {
 
     @FXML
     private TextField SearchBar;
+
+    @FXML
+    private MenuButton AccountMenuButton;
+
+    @FXML
+    private Button SearchButton;
+
+    @FXML
+    private Button OrderButton;
+
+    @FXML
+    private Button CartButton;
 
     @FXML
     private MenuItem LoginButton;
@@ -47,7 +55,7 @@ public class HomepageController {
     private MenuItem ChangeMailButton;
 
     @FXML
-    private MenuItem ChangePasswordButton;
+    private MenuItem RefactorPasswordButton;
 
     @FXML
     private MenuItem ExitButton;
@@ -206,7 +214,7 @@ public class HomepageController {
         LoginButton.setVisible(true);
         RegisterButton.setVisible(true);
         ChangeMailButton.setVisible(false);
-        ChangePasswordButton.setVisible(false);
+        RefactorPasswordButton.setVisible(false);
         CompleteButton.setVisible(false);
         ControlPanelButton.setVisible(false);
         BalanceButton.setVisible(false);
@@ -218,7 +226,7 @@ public class HomepageController {
         RegisterButton.setVisible(false);
         ChangeMailButton.setVisible(true);
         ControlPanelButton.setVisible(Client.getInstance().getAdminRole());
-        ChangePasswordButton.setVisible(true);
+        RefactorPasswordButton.setVisible(true);
         ExitButton.setVisible(true);
     }
 
@@ -246,10 +254,29 @@ public class HomepageController {
         }, exc -> {});
     }
 
+    void setIcons() {
+        FontIcon userIcon = new FontIcon("fas-user-circle");
+        userIcon.setIconColor(Color.WHITE);
+        AccountMenuButton.setGraphic(userIcon);
+
+        FontIcon searchIcon = new FontIcon("fas-search");
+        SearchButton.setGraphic(searchIcon);
+
+        FontIcon orderIcon = new FontIcon("fas-clipboard-list");
+        orderIcon.setIconColor(Color.WHITE);
+        OrderButton.setGraphic(orderIcon);
+
+        FontIcon cartIcon = new FontIcon("fas-cart-arrow-down");
+        cartIcon.setIconColor(Color.WHITE);
+        CartButton.setGraphic(cartIcon);
+    }
+
     @FXML
     void initialize() throws Exception {
         Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
         HomePageButton.setImage(image);
+
+        setIcons();
 
         if(Client.getInstance().getEmail() != null) {
             obtainData();

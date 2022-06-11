@@ -3,65 +3,88 @@
 }
 
 #anchorPane {
-    -fx-background-color: #e3e3e3;
+    -fx-background-color: backgroundColor;
 }
 
 #headerSection {
-    -fx-background-color: #1b4e8d;
+    -fx-background-color: headerColor;
 }
 
-#AccessButton {
-    -fx-background-color: #FADC38;
+#AccessButton, #RecoveryPasswordButton, #ChangePasswordButton,
+#RechargeButton, #AddButton{
+    -fx-background-color: primaryButtonColor;
     -fx-background-radius: 5;
+    -fx-border-color: buttonBorderColor;
+    -fx-border-radius: 5;
+    -fx-background-insets: 95%;
 }
 
-#RegistrationButton {
-    -fx-background-color: #ff9900;
+#RegistrationButton, #UploadImageButton {
+    -fx-background-color: secondaryButtonColor;
     -fx-background-radius: 5;
+    -fx-border-color: buttonBorderColor;
+    -fx-border-radius: 5;
+    -fx-background-insets: 95%;
 }
 
 #AccessVBOX, #RegistrationVBOX, #PasswordChangeVBOX,
 #InfosRequestVBOX, #BalanceRechargeVBOX, #PasswordRecoveryVBOX,
 #AddCouponVBOX, #AddProductVBOX {
-    -fx-border-color: #c2c1be;
-    -fx-background-color: #ffffff;
+    -fx-border-color: VBOXBorderColor;
+    -fx-background-color: VBOXBackgroundColor;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
 }
 
 #CategoriesButton, #SearchBar {
-    -fx-background-color: white;
+    -fx-background-color: headerElementsColor;
     -fx-background-size: 95%;
 }
 
 #SearchButton {
-    -fx-background-color: #ff9900;
+    -fx-background-color: searchButtonColor;
 }
 
 #SearchButton, #SearchBar, #CategoriesButton {
     -fx-background-radius: 5;
-    -fx-border-color: black;
+    -fx-border-color: headerBorderElementsColor;
     -fx-border-radius: 5;
     -fx-background-insets: 95%;
 }
 
 #returnToHomeLabel {
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: labelColor;
 }
 
 #AccountMenuButton .label {
-    -fx-text-fill: white;
+    -fx-text-fill: labelColor;
 }
 
 #AccountMenuButton, #CartButton, #OrderButton {
     -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-text-fill: labelColor;
 }
 
 #AccountMenuButton .menu-item > .label {
-    -fx-text-fill: black;
+    -fx-text-fill: menuItemLabelColor;
+}
+
+#AccountMenuButton .arrow {
+    -fx-background-color: labelColor;
+}
+
+#LoginButton, #RegisterButton {
+    -fx-background-color: labelColor;
+}
+
+#LoginButton:hover {
+    -fx-background-color: primaryButtonColor;
+}
+
+#RegisterButton:hover {
+    -fx-background-color: secondaryButtonColor;
 }
 
 #lowerSection {
-    /*TODO: Fare gradiente*/
+    -fx-background-color : lowerSectionColor;
 }

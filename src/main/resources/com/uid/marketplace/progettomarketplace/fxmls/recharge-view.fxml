@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RechargeController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RechargeController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -44,7 +44,7 @@
                   <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <VBox fx:id="BalanceRechargeVBOX" alignment="TOP_CENTER" maxHeight="205.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            <VBox fx:id="BalanceRechargeVBOX" alignment="TOP_CENTER" maxHeight="205.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="405.0">
                <children>
                   <Label text="Ricarica il tuo saldo" VBox.vgrow="NEVER">
                      <font>
@@ -70,7 +70,7 @@
                         <Font name="Roboto" size="13.0" />
                      </font>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#RechargeAction" text="Ricarica saldo" VBox.vgrow="NEVER">
+                  <Button fx:id="RechargeButton" mnemonicParsing="false" onAction="#RechargeAction" text="Ricarica saldo" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -86,7 +86,7 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: light grey;">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Dove posso trovare i coupon?">
                      <font>

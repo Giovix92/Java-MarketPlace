@@ -33,7 +33,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="AddCouponVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            <VBox fx:id="AddCouponVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="405.0">
                <children>
                   <Label text="Aggiungi un coupon" VBox.vgrow="NEVER">
                      <font>
@@ -90,7 +90,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#AddCouponAction" text="Aggiungi" VBox.vgrow="NEVER">
+                  <Button fx:id="AddButton" mnemonicParsing="false" onAction="#AddCouponAction" text="Aggiungi" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets top="-5.0" />
                      </VBox.margin>
@@ -106,7 +106,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </VBox>
-            <VBox fx:id="AddProductVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            <VBox fx:id="AddProductVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="405.0">
                <children>
                   <Label text="Aggiungi un prodotto" VBox.vgrow="NEVER">
                      <font>
@@ -182,7 +182,7 @@
                   </TextField>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#UploadImageAction" text="Carica immagine">
+                        <Button fx:id="UploadImageButton" mnemonicParsing="false" onAction="#UploadImageAction" text="Carica immagine">
                            <font>
                               <Font name="Roboto" size="13.0" />
                            </font>
@@ -190,7 +190,7 @@
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#AddProductAction" text="Aggiungi">
+                        <Button fx:id="AddButton" mnemonicParsing="false" onAction="#AddProductAction" text="Aggiungi">
                            <font>
                               <Font name="Roboto" size="13.0" />
                            </font>

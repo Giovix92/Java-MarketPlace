@@ -34,7 +34,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="RegistrationVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="405.0" style="-fx-border-color: grey;">
+            <VBox fx:id="RegistrationVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="405.0">
                <children>
                   <Label text="Crea account" VBox.vgrow="NEVER">
                      <font>

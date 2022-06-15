@@ -19,22 +19,13 @@ import java.util.Objects;
 public class InformationController {
 
     @FXML
-    private TextField AddressBar;
+    private TextField AddressBar, NameBar, SurnameBar;
 
     @FXML
     private ImageView HomePageButton;
 
     @FXML
-    private TextField NameBar;
-
-    @FXML
-    private TextField SurnameBar;
-
-    @FXML
-    void ChargeAction(ActionEvent event) {
-        //hyperlink per la ricarica del saldo istantaneo
-
-    }
+    void ChargeAction(ActionEvent event) throws Exception { SceneHandler.getInstance().setRechargeBalanceScene(); }
 
     @FXML
     void CompleteAction(ActionEvent event) throws Exception {
@@ -49,14 +40,10 @@ public class InformationController {
     }
 
     @FXML
-    void ConditionAction(ActionEvent event) {
-        SceneHandler.getInstance().showTOSAlert();
-    }
+    void ConditionAction(ActionEvent event) { SceneHandler.getInstance().showTOSAlert(); }
 
     @FXML
-    void HomeAction(MouseEvent event) throws Exception {
-        SceneHandler.getInstance().setHomePageScene();
-    }
+    void HomeAction(MouseEvent event) throws Exception { SceneHandler.getInstance().setHomePageScene(); }
 
     @FXML
     void PrivacyAction(ActionEvent event) {
@@ -67,6 +54,9 @@ public class InformationController {
     void SocietyAction(ActionEvent event) {
         SceneHandler.getInstance().showSocietyAlert();
     }
+
+    @FXML
+    void ThemeChange(ActionEvent event) { SceneHandler.getInstance().changeTheme(); }
 
     @FXML
     void initialize() {

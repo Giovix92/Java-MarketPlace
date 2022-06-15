@@ -1,5 +1,7 @@
 package com.uid.marketplace.progettomarketplace.Model;
 
+import javafx.scene.image.Image;
+
 public class Prodotto {
 
     private static Prodotto instance = new Prodotto();
@@ -7,16 +9,20 @@ public class Prodotto {
     private Prodotto() {}
     public static Prodotto getInstance() { return instance; }
 
-    String id = null;
     String name = null;
     String descrizione = null;
     String venditore = null;
     String prezzo = "0";
     String image_id = null;
+    Image image = null;
 
-    public String getId() {return id;}
+    public Image getImage() {
+        return image;
+    }
 
-    public void setId(String id) {this.id = id;}
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     public String getName() {return name;}
 
@@ -38,14 +44,21 @@ public class Prodotto {
 
     public void setImage_id(String image_id) {this.image_id = image_id;}
 
+    public void setData(String name, String descrizione, String venditore, String prezzo, String image_id, Image image) {
+        this.name = name;
+        this.descrizione = descrizione;
+        this.venditore = venditore;
+        this.prezzo = prezzo;
+        this.image_id = image_id;
+        this.image = image;
+    }
 
     public void resetData() throws Exception {
-
-        setId(null);
         setName(null);
         setDescrizione(null);
         setVenditore(null);
         setPrezzo("0");
         setImage_id(null);
+        setImage(null);
     }
 }

@@ -77,28 +77,26 @@ public class ControlPanelController {
 
         File file = new File(String.valueOf(Path.of(Prodotto.getInstance().getImage_id())));
 
-        if(file != null) {
-            Client.getInstance().uploadFile(file, file.getName().replaceAll(".*\\.",""),
-                    ref -> {
-                            Product product = new Product(ProductNameBar.getText(), ProductDescriptionBar.getText(), ProductSellerBar.getText(), ProductPriceBar.getText(), ref.fileId());
-                            JSONObject obj = JSONUtil.toJSON(product);
-                            Client.getInstance().insert("prodotti", obj,
-                            reference -> {},
-                            exc -> {});
-                            /* Cartella dove vengono messi i files temporanei
-                            System.out.println(System.getProperty("java.io.tmpdir"));  */
-                            Path src = Paths.get(Prodotto.getInstance().getImage_id());
-                            Path dest = Paths.get(Objects.requireNonNull(MarketPlaceApplication.class.getResource("ProductImageCache")).getFile() + "/" + ref.fileId());
-                            Files.copy(src,dest);
-                    },
-                    Throwable::printStackTrace);
-            SceneHandler.getInstance().createAlert(AlertMessages.PRODUCT_ADDED_MSG, AlertMessages.PRODUCT_ADDED_TITLE);
-            Prodotto.getInstance().resetData();
-            ProductDescriptionBar.setText("");
-            ProductNameBar.setText("");
-            ProductPriceBar.setText("");
-            ProductSellerBar.setText("");
-        }
+        Client.getInstance().uploadFile(file, file.getName().replaceAll(".*\\.",""),
+                ref -> {
+                        Product product = new Product(ProductNameBar.getText(), ProductDescriptionBar.getText(), ProductSellerBar.getText(), ProductPriceBar.getText(), ref.fileId());
+                        JSONObject obj = JSONUtil.toJSON(product);
+                        Client.getInstance().insert("prodotti", obj,
+                        reference -> {},
+                        exc -> {});
+                        /* Cartella dove vengono messi i files temporanei
+                        System.out.println(System.getProperty("java.io.tmpdir"));
+                        Path src = Paths.get(Prodotto.getInstance().getImage_id());
+                        Path dest = Paths.get(Objects.requireNonNull(MarketPlaceApplication.class.getResource("ProductImageCache")).getFile() + "/" + ref.fileId());
+                        Files.copy(src,dest);  */
+                },
+                Throwable::printStackTrace);
+        SceneHandler.getInstance().createAlert(AlertMessages.PRODUCT_ADDED_MSG, AlertMessages.PRODUCT_ADDED_TITLE);
+        Prodotto.getInstance().resetData();
+        ProductDescriptionBar.setText("");
+        ProductNameBar.setText("");
+        ProductPriceBar.setText("");
+        ProductSellerBar.setText("");
     }
 
     @FXML
@@ -125,6 +123,9 @@ public class ControlPanelController {
     void UploadImageAction(ActionEvent event) throws Exception {
         Prodotto.getInstance().setImage_id(SceneHandler.getInstance().showFileChooser());
     }
+
+    @FXML
+    void ThemeChange(ActionEvent event) { SceneHandler.getInstance().changeTheme(); }
 
     @FXML
     void initialize() {

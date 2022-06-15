@@ -11,7 +11,7 @@
 }
 
 #AccessButton, #RecoveryPasswordButton, #ChangePasswordButton,
-#RechargeButton, #AddButton{
+#RechargeButton, #AddButton, #addToCartButton, #CompleteButton {
     -fx-background-color: primaryButtonColor;
     -fx-background-radius: 5;
     -fx-border-color: buttonBorderColor;
@@ -19,7 +19,7 @@
     -fx-background-insets: 95%;
 }
 
-#RegistrationButton, #UploadImageButton {
+#RegistrationButton, #UploadImageButton, #CompleteAccountButton {
     -fx-background-color: secondaryButtonColor;
     -fx-background-radius: 5;
     -fx-border-color: buttonBorderColor;
@@ -43,6 +43,7 @@
 
 #SearchButton {
     -fx-background-color: searchButtonColor;
+
 }
 
 #SearchButton, #SearchBar, #CategoriesButton {
@@ -73,18 +74,41 @@
     -fx-background-color: labelColor;
 }
 
-#LoginButton, #RegisterButton {
-    -fx-background-color: labelColor;
-}
-
-#LoginButton:hover {
-    -fx-background-color: primaryButtonColor;
-}
-
-#RegisterButton:hover {
-    -fx-background-color: secondaryButtonColor;
-}
-
 #lowerSection {
     -fx-background-color : lowerSectionColor;
 }
+
+#existsLabel, #changeLabel, #createLabel, #verifyLabel, #newLabel, #passwordLabel,
+#mailLabel, #accessLabel, #lowerLabel, #lowerLabel2, #adviceLabel, #adviceLabel2,
+#adviceLabel3, #adviceLabel4, #adviceLabel5, #adviceLabel6, #adviceLabel7, #adviceLabel8,
+#addLabel, #couponLabel, #valueLabel, #addLabel2, #nameLabel, #descriptionLabel,
+#sellerLabel, #priceLabel, #completeLabel, #surnameLabel, #addressLabel, #haveLabel,
+#rechargeLabel, #insertLabel, #whereLabel, #whereLabel2, #whereLabel3, #whereLabel4,
+#whereLabel5, #assistanceLabel, #assistanceLabel2, #assistanceLabel3, #BalanceField,
+#assistanceLabel4, #changeLabel2, #changeLabel3, #changeLabel4,
+#productLabel1, #productLabel2, #productLabel3, #productLabel4, #productLabel5, #productLabel6,
+#productLabel7, #productLabel8, #productLabel9, #productLabel10, #productLabel11, #productLabel12,
+#productLabel13, #productLabel14, #productLabel15, #productLabel16, #categoryLabel1, #categoryLabel2,
+#categoryLabel3, #categoryLabel4, #productName, #productPrice, #productDescription, #qtyLabel {
+    -fx-text-fill : totalLabelColor
+}
+
+#productLabel1, #productLabel2, #productLabel3, #productLabel4, #productLabel5, #productLabel6,
+#productLabel7, #productLabel8, #productLabel9, #productLabel10, #productLabel11, #productLabel12,
+#productLabel13, #productLabel14, #productLabel15, #productLabel16 {
+    -fx-font-size: 16px;
+}
+
+.hyperlink:selected, .hyperlink {
+    -fx-text-fill: hyperLinkColor;
+}
+
+#qtyBox .label, #qtyBox .menu-item {
+    -fx-font-size: 16px;
+}
+
+#addToCartButton {
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+    -fx-font-size: 18px;
+}
+

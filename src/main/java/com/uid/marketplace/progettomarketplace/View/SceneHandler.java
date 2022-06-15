@@ -2,7 +2,7 @@ package com.uid.marketplace.progettomarketplace.View;
 
 import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
-import com.uid.marketplace.progettomarketplace.Settings;
+import com.uid.marketplace.progettomarketplace.Model.Utente;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +15,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -24,14 +25,22 @@ public class SceneHandler {
     private Stage stage;
     private Scene scene;
 
+    private String theme = "light";
+
+    Alert alert = new Alert(null);
+
     private SceneHandler() {}
     public static SceneHandler getInstance() { return instance; }
 
     public void loadResources(Scene scene){
-        for (String font : Settings.fonts)
+        for (String font : List.of("fonts/Roboto/Roboto-Regular.ttf", "fonts/Roboto/Roboto-Bold.ttf"))
             Font.loadFont(Objects.requireNonNull(MarketPlaceApplication.class.getResource(font)).toExternalForm(), 10);
-        for (String style : Settings.styles)
-            scene.getStylesheets().add(Objects.requireNonNull(MarketPlaceApplication.class.getResource(style)).toExternalForm());
+        for (String style : List.of("css/"+theme+".css", "css/fonts.css", "css/style.css")) {
+            String res = Objects.requireNonNull(MarketPlaceApplication.class.getResource(style)).toExternalForm();
+            scene.getStylesheets().add(res);
+            alert.getDialogPane().getStylesheets().add(res);
+
+        }
     }
 
     public void init(Stage stage){
@@ -42,10 +51,11 @@ public class SceneHandler {
             this.stage.setTitle("UID - MarketPlace");
             this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
-                public void handle(WindowEvent windowEvent){
+                public void handle(WindowEvent windowEvent) {
                     try {
-                        if (Client.getInstance() != null)
+                        if (Client.getInstance() != null) {
                             Client.getInstance().close();
+                        }
                         System.exit(0);
                     } catch (Exception ignored) {
                     }
@@ -55,14 +65,14 @@ public class SceneHandler {
     }
 
     public void createAlert(String message, String title) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(message);
         alert.showAndWait();
     }
 
     public void createError(String message, String title) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(message);
         alert.showAndWait();
@@ -71,7 +81,7 @@ public class SceneHandler {
     public boolean createErrorWithContacts(String message, String title) {
         ButtonType ok = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         ButtonType report = new ButtonType("Segnala l'errore", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(Alert.AlertType.ERROR, "", ok, report);
+        alert = new Alert(Alert.AlertType.ERROR, "", ok, report);
         alert.setTitle(title);
         alert.setHeaderText(message);
         Optional<ButtonType> result_tmp = alert.showAndWait();
@@ -81,7 +91,7 @@ public class SceneHandler {
     public boolean createRegistrationVerificationDialog(String message, String title) {
         ButtonType confirm = new ButtonType("Conferma", ButtonBar.ButtonData.OK_DONE);
         ButtonType resend = new ButtonType("Invia di nuovo", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, message, confirm, resend);
+        alert = new Alert(Alert.AlertType.INFORMATION, message, confirm, resend);
         alert.setTitle(title);
         alert.setHeaderText(message);
         alert.setContentText("");
@@ -93,6 +103,17 @@ public class SceneHandler {
     public void showSocietyAlert() { createAlert(AlertMessages.SOCIETY_MSG, AlertMessages.SOCIETY_TITLE); }
     public void showTOSAlert() { createAlert(AlertMessages.TOS_MSG, AlertMessages.TOS_TITLE); }
     public void showHelpAlert() { createAlert(AlertMessages.HELP_MSG, AlertMessages.HELP_TITLE); }
+
+    public void changeTheme() {
+        if("dark".equals(theme))
+            theme = "light";
+        else
+            theme = "dark";
+        scene.getStylesheets().clear();
+        for (String style : List.of("css/"+theme+".css", "css/fonts.css", "css/style.css"))
+            scene.getStylesheets().add(Objects.requireNonNull(MarketPlaceApplication.class.getResource(style)).toExternalForm());
+
+    }
 
     public void loadFXML(String FXMLPath) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(MarketPlaceApplication.class.getResource(FXMLPath));

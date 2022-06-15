@@ -78,6 +78,9 @@ public class ChangePasswordController {
     }
 
     @FXML
+    void ThemeChange(ActionEvent event) { SceneHandler.getInstance().changeTheme(); }
+
+    @FXML
     void initialize() {
         Image image = new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/logo.png")));
         HomePageButton.setImage(image);

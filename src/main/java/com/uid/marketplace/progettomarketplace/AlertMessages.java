@@ -40,7 +40,9 @@ public interface AlertMessages {
     String BALANCE_UPDATED_MSG = "Il saldo è stato aggiornato correttamente. Ora puoi procedere agli acquisti!";
     String BALANCE_UPDATED_TITLE = "Coupon aggiunto al tuo account";
     String INVALID_COUPON_MSG = "Il coupon che hai inserito non è valido! Riprova.";
-    // TODO: Tradurre in italiano
+
+    String ADDED_TO_CART_MSG = "Il prodotto è stato aggiunto al carrello correttamente!";
+    String ADDED_TO_CART_TITLE = "Prodotto aggiunto";
     String PRIVACY_POLICY_MSG = """
             0. Informativa sulla privacy
             UID - Marketplace prende sul serio la vostra privacy.

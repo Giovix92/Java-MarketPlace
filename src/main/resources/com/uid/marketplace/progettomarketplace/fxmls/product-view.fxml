@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="610.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.ProductController">
+   <children>
+      <BorderPane layoutY="60.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <ImageView fx:id="productImg" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="150.0" />
+               </BorderPane.margin>
+            </ImageView>
+         </left>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="430.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="productName">
+                     <font>
+                        <Font name="Roboto" size="30.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="55.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="productPrice">
+                     <font>
+                        <Font name="Roboto" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="availabilityLabel" text="Disponibilità immediata." textFill="#007600">
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="qtyLabel" contentDisplay="RIGHT" text="Quantità: ">
+                     <graphic>
+                        <ChoiceBox fx:id="qtyBox" nodeOrientation="LEFT_TO_RIGHT" prefWidth="70.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ChoiceBox>
+                     </graphic>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="addToCartButton" mnemonicParsing="false" onAction="#addToCartAction" prefHeight="40.0" prefWidth="240.0" text="Aggiungi al carrello">
+                     <VBox.margin>
+                        <Insets left="10.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="descriptionLabel" text="Descrizione:">
+                     <VBox.margin>
+                        <Insets left="10.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="productDescription">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -89,14 +89,15 @@ public class RegistrationController {
     @FXML
     void PrivacyAction(ActionEvent event) {
         SceneHandler.getInstance().showPrivacyPolicyAlert();
-
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
         SceneHandler.getInstance().showSocietyAlert();
-
     }
+
+    @FXML
+    void ThemeChange(ActionEvent event) { SceneHandler.getInstance().changeTheme(); }
 
     @FXML
     void initialize() {

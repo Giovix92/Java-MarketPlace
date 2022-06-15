@@ -114,17 +114,302 @@
             </Button>
          </children>
       </HBox>
-    <AnchorPane layoutY="77.0" prefHeight="633.0" prefWidth="1034.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="subAnchorPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <HBox prefHeight="130.0" prefWidth="1000.0" AnchorPane.bottomAnchor="560.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="130.0" prefWidth="1000.0" AnchorPane.bottomAnchor="420.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="155.0" />
-            <HBox layoutX="20.0" layoutY="20.0" prefHeight="130.0" prefWidth="1000.0" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="295.0" />
-            <HBox layoutX="30.0" layoutY="30.0" prefHeight="130.0" prefWidth="1000.0" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="450.0" />
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="1065.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="categoryLabel1" alignment="CENTER" prefHeight="50.0" text="Categoria 1">
+                     <font>
+                        <Font name="Roboto Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="940.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="hboxTest" prefHeight="130.0" prefWidth="1000.0" VBox.vgrow="NEVER">
+                     <children>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview1" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview2" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview3" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel3">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview4" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel4">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="categoryLabel2" alignment="CENTER" prefHeight="50.0" text="Categoria 2">
+                     <font>
+                        <Font name="Roboto Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="940.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="130.0" prefWidth="1000.0" VBox.vgrow="NEVER">
+                     <children>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview5" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel5">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview6" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel6">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview7" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel7">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview8" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel8">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Label fx:id="categoryLabel3" alignment="CENTER" prefHeight="50.0" text="Categoria 3">
+                     <font>
+                        <Font name="Roboto Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="940.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="130.0" prefWidth="1000.0" VBox.vgrow="NEVER">
+                     <children>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview9" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel9">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview10" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel10">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview11" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel11">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview12" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel12">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="categoryLabel4" alignment="CENTER" prefHeight="50.0" text="Categoria 4">
+                     <font>
+                        <Font name="Roboto Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="940.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="130.0" prefWidth="1000.0" VBox.vgrow="NEVER">
+                     <children>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview13" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel13">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview14" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel14">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview15" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel15">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="250.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="imgview16" fitHeight="100.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ImageView>
+                              <Label fx:id="productLabel16">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
       <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="UID - MarketPlace" VBox.vgrow="NEVER">
+            <Label fx:id="lowerLabel" text="UID - MarketPlace" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -132,7 +417,7 @@
                   <Font name="Roboto" size="22.0" />
                </font>
             </Label>
-            <Label text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
+            <Label fx:id="lowerLabel2" text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -142,9 +427,9 @@
             </Label>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Hyperlink onAction="#ConditionAction" text="Condizioni generali di vendita">
+                  <Hyperlink fx:id="ConditionHyperlink" onAction="#ConditionAction" text="Condizioni generali di vendita">
                      <HBox.margin>
-                        <Insets left="-25.0" right="20.0" top="10.0" />
+                        <Insets left="-45.0" right="10.0" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
@@ -160,11 +445,19 @@
                   </Hyperlink>
                   <Hyperlink onAction="#PrivacyAction" text="Informativa sulla privacy">
                      <HBox.margin>
-                        <Insets left="25.0" top="10.0" />
+                        <Insets left="12.5" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
+                  </Hyperlink>
+                  <Hyperlink onAction="#ThemeChange" text="Cambia tema">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
                   </Hyperlink>
                </children>
             </HBox>

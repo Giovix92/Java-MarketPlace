@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.InformationController">
+<AnchorPane fx:id="anchorPane" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.InformationController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -35,7 +35,7 @@
             </VBox>
             <VBox fx:id="InfosRequestVBOX" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="405.0">
                <children>
-                  <Label text="Completa il tuo account" VBox.vgrow="NEVER">
+                  <Label fx:id="completeLabel" text="Completa il tuo account" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="25.0" />
                      </font>
@@ -43,7 +43,7 @@
                         <Insets right="80.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Nome" VBox.vgrow="NEVER">
+                  <Label fx:id="nameLabel" text="Nome" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="16.0" />
                      </font>
@@ -59,7 +59,7 @@
                         <Font name="Roboto" size="13.0" />
                      </font>
                   </TextField>
-                  <Label text="Cognome" VBox.vgrow="NEVER">
+                  <Label fx:id="surnameLabel" text="Cognome" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="16.0" />
                      </font>
@@ -75,7 +75,7 @@
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label layoutX="180.0" layoutY="125.0" text="Indirizzo">
+                  <Label fx:id="addressLabel" layoutX="180.0" layoutY="125.0" text="Indirizzo">
                      <font>
                         <Font name="Roboto" size="16.0" />
                      </font>
@@ -91,7 +91,7 @@
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#CompleteAction" text="Completa" VBox.vgrow="NEVER">
+                  <Button fx:id="CompleteButton" mnemonicParsing="false" onAction="#CompleteAction" text="Completa" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -104,7 +104,7 @@
                   </Button>
                   <Hyperlink onAction="#ChargeAction" text="Ricarica il tuo saldo">
                      <graphic>
-                        <Label text="Hai un coupon?">
+                        <Label fx:id="haveLabel" text="Hai un coupon?">
                            <font>
                               <Font name="Roboto" size="13.0" />
                            </font></Label>
@@ -125,7 +125,7 @@
       </VBox>
       <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="UID - MarketPlace" VBox.vgrow="NEVER">
+            <Label fx:id="lowerLabel" text="UID - MarketPlace" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -133,7 +133,7 @@
                   <Font name="Roboto" size="22.0" />
                </font>
             </Label>
-            <Label text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
+            <Label fx:id="lowerLabel2" text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -143,9 +143,9 @@
             </Label>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Hyperlink onAction="#ConditionAction" text="Condizioni generali di vendita">
+                  <Hyperlink fx:id="ConditionHyperlink" onAction="#ConditionAction" text="Condizioni generali di vendita">
                      <HBox.margin>
-                        <Insets left="-25.0" right="20.0" top="10.0" />
+                        <Insets left="-45.0" right="10.0" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
@@ -161,11 +161,19 @@
                   </Hyperlink>
                   <Hyperlink onAction="#PrivacyAction" text="Informativa sulla privacy">
                      <HBox.margin>
-                        <Insets left="25.0" top="10.0" />
+                        <Insets left="12.5" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
+                  </Hyperlink>
+                  <Hyperlink onAction="#ThemeChange" text="Cambia tema">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
                   </Hyperlink>
                </children>
             </HBox>

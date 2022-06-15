@@ -67,14 +67,15 @@ public class RecoveryController {
     @FXML
     void ServiceAction(ActionEvent event) {
         SceneHandler.getInstance().showHelpAlert();
-
     }
 
     @FXML
     void SocietyAction(ActionEvent event) {
         SceneHandler.getInstance().showSocietyAlert();
-
     }
+
+    @FXML
+    void ThemeChange(ActionEvent event) { SceneHandler.getInstance().changeTheme(); }
 
     @FXML
     void initialize() {

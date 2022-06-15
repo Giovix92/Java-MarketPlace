@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RechargeController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RechargeController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -46,7 +46,7 @@
             </Label>
             <VBox fx:id="BalanceRechargeVBOX" alignment="TOP_CENTER" maxHeight="205.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="405.0">
                <children>
-                  <Label text="Ricarica il tuo saldo" VBox.vgrow="NEVER">
+                  <Label fx:id="rechargeLabel" text="Ricarica il tuo saldo" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="25.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <Insets right="130.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Inserisci qui il tuo coupon" VBox.vgrow="NEVER">
+                  <Label fx:id="insertLabel" text="Inserisci qui il tuo coupon" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Roboto" size="16.0" />
                      </font>
@@ -88,7 +88,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Dove posso trovare i coupon?">
+                  <Label fx:id="whereLabel" text="Dove posso trovare i coupon?">
                      <font>
                         <Font name="Roboto" size="17.0" />
                      </font>
@@ -96,7 +96,7 @@
                         <Insets right="180.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="I nostri coupon sono disponibili in tutti i negozi ">
+                  <Label fx:id="whereLabel2" text="I nostri coupon sono disponibili in tutti i negozi ">
                      <VBox.margin>
                         <Insets right="130.0" top="3.0" />
                      </VBox.margin>
@@ -104,7 +104,7 @@
                         <Font name="Roboto" size="13.0" />
                      </font>
                   </Label>
-                  <Label text="autorizzati UID - MarketPlace.">
+                  <Label fx:id="whereLabel3" text="autorizzati UID - MarketPlace.">
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
@@ -112,7 +112,7 @@
                         <Insets right="230.0" top="1.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Per maggiori informazioni o per problemi ">
+                  <Label fx:id="whereLabel4" text="Per maggiori informazioni o per problemi ">
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
@@ -120,7 +120,7 @@
                         <Insets right="163.0" top="1.0" />
                      </VBox.margin>
                   </Label>
-                  <Label contentDisplay="RIGHT" text="con il tuo coupon conttatare il ">
+                  <Label fx:id="whereLabel5" contentDisplay="RIGHT" text="con il tuo coupon conttatare il ">
                      <graphic>
                         <Hyperlink contentDisplay="RIGHT" onAction="#ServiceAction" pickOnBounds="false" text="Servizio Clienti">
                            <padding>
@@ -144,7 +144,7 @@
       </VBox>
       <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="UID - MarketPlace" VBox.vgrow="NEVER">
+            <Label fx:id="lowerLabel" text="UID - MarketPlace" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -152,7 +152,7 @@
                   <Font name="Roboto" size="22.0" />
                </font>
             </Label>
-            <Label text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
+            <Label fx:id="lowerLabel2" text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -162,9 +162,9 @@
             </Label>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Hyperlink onAction="#ConditionAction" text="Condizioni generali di vendita">
+                  <Hyperlink fx:id="ConditionHyperlink" onAction="#ConditionAction" text="Condizioni generali di vendita">
                      <HBox.margin>
-                        <Insets left="-25.0" right="20.0" top="10.0" />
+                        <Insets left="-45.0" right="10.0" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
@@ -180,11 +180,19 @@
                   </Hyperlink>
                   <Hyperlink onAction="#PrivacyAction" text="Informativa sulla privacy">
                      <HBox.margin>
-                        <Insets left="25.0" top="10.0" />
+                        <Insets left="12.5" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Roboto" size="13.0" />
                      </font>
+                  </Hyperlink>
+                  <Hyperlink onAction="#ThemeChange" text="Cambia tema">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
                   </Hyperlink>
                </children>
             </HBox>

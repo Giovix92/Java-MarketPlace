@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" maxHeight="610.0" maxWidth="1065.0" prefHeight="610.0"
+            prefWidth="1065.0" xmlns="http://javafx.com/javafx/18"
+            fx:controller="com.uid.marketplace.progettomarketplace.controllers.CartController">
+    <children>
+        <HBox fx:id="hBox" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox prefHeight="610.0" prefWidth="530.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="YourCartLabel" text="Il tuo carrello:">
+                            <font>
+                                <Font name="Roboto" size="25.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="15.0" top="25.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <ScrollPane fx:id="productScrollPane" prefHeight="534.0" prefWidth="530.0">
+                            <VBox.margin>
+                                <Insets left="15.0" top="20.0"/>
+                            </VBox.margin>
+                            <content>
+                                <VBox fx:id="vBox"/>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </VBox>
+                <VBox prefHeight="610.0" prefWidth="535.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="purchaseInfoLabel" text="Informazioni sull'acquisto">
+                            <font>
+                                <Font name="Roboto" size="25.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="15.0" top="75.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="purchaseYourInfosLabel">
+                            <VBox.margin>
+                                <Insets left="15.0" top="15.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="20.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="purchaseAddressLabel">
+                            <VBox.margin>
+                                <Insets left="15.0" top="10.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="20.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="actualBalanceLabel">
+                            <font>
+                                <Font name="Roboto" size="20.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="15.0" top="10.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="purchaseTotalLabel">
+                            <font>
+                                <Font name="Roboto" size="20.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="15.0" top="10.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Button fx:id="purchaseButton" mnemonicParsing="false" onAction="#purchaseAction"
+                                prefHeight="34.0" prefWidth="189.0" text="Procedi all'acquisto">
+                            <font>
+                                <Font name="Roboto" size="15.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="180.0" top="20.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Label fx:id="insufficientBalanceLabel" contentDisplay="RIGHT" text="Saldo insufficente?">
+                            <font>
+                                <Font name="Roboto" size="15.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="140.0" top="10.0"/>
+                            </VBox.margin>
+                            <graphic>
+                                <Hyperlink fx:id="rechargeHyperLink" alignment="TOP_LEFT" onAction="#rechargeAction"
+                                           text="Ricarica il tuo saldo!">
+                                    <font>
+                                        <Font name="Roboto" size="15.0"/>
+                                    </font>
+                                </Hyperlink>
+                            </graphic>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

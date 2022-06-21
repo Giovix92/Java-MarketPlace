@@ -2,7 +2,7 @@ package com.uid.marketplace.progettomarketplace.client.util;
 
 import org.json.JSONObject;
 
-public record QueryResult (Boolean success, String message, JSONObject obj){
+public record QueryResult(Boolean success, String message, JSONObject obj) {
 
     public QueryResult(Boolean success, String message) {
         this(success, message, null);
@@ -11,17 +11,17 @@ public record QueryResult (Boolean success, String message, JSONObject obj){
     @Override
     public String toString() {
         String additional = "";
-        if(obj != null)
-            additional= """
-, "response": %s
-""".formatted(obj.toString(2));
+        if (obj != null)
+            additional = """
+                    , "response": %s
+                    """.formatted(obj.toString(2));
 
         return """
-{
-    "success": "%s",
-    "message": "%s"
-    %s
-}
-        """.formatted(success, message, additional);
+                {
+                    "success": "%s",
+                    "message": "%s"
+                    %s
+                }
+                        """.formatted(success, message, additional);
     }
 }

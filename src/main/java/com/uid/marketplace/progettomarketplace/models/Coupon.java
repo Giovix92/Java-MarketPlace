@@ -1,4 +1,4 @@
-package com.uid.marketplace.progettomarketplace.Model;
+package com.uid.marketplace.progettomarketplace.models;
 
 public record Coupon(String key, String value) {
     @Override

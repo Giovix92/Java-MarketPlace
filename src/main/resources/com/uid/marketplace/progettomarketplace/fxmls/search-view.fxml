@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" prefHeight="610.0" prefWidth="1065.0"
+            xmlns="http://javafx.com/javafx/17"
+            fx:controller="com.uid.marketplace.progettomarketplace.controllers.SearchController">
+    <children>
+        <ScrollPane fx:id="searchScrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox fx:id="vBox" alignment="TOP_CENTER"/>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

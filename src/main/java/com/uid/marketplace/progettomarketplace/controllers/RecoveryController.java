@@ -1,13 +1,12 @@
-package com.uid.marketplace.progettomarketplace.Controller;
+package com.uid.marketplace.progettomarketplace.controllers;
 
 import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
-import com.uid.marketplace.progettomarketplace.View.SceneHandler;
 import com.uid.marketplace.progettomarketplace.client.Client;
 import com.uid.marketplace.progettomarketplace.client.ConnectionException;
-import javafx.event.ActionEvent;
+import com.uid.marketplace.progettomarketplace.view.SceneHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,7 +26,7 @@ public class RecoveryController {
 
 
     @FXML
-    void ConditionAction(ActionEvent event) {
+    void ConditionAction() {
         SceneHandler.getInstance().showTOSAlert();
     }
 
@@ -37,14 +36,14 @@ public class RecoveryController {
     }
 
     @FXML
-    void PrivacyAction(ActionEvent event) {
+    void PrivacyAction() {
         SceneHandler.getInstance().showPrivacyPolicyAlert();
 
     }
 
     @FXML
-    void RecoveryPasswordAction(ActionEvent event) throws Exception {
-        if(!MailBar.getText().contains("@")) {
+    void RecoveryPasswordAction() throws Exception {
+        if (!MailBar.getText().contains("@")) {
             SceneHandler.getInstance().createError(AlertMessages.INVALID_EMAIL_MSG,
                     AlertMessages.REGISTRATION_ERROR_TITLE);
             return;
@@ -57,25 +56,26 @@ public class RecoveryController {
                 SceneHandler.getInstance().createError(AlertMessages.CHANGE_RECOVERY_EMAIL_ERROR_MSG, AlertMessages.RECOVERY_EMAIL_TITLE);
             }
         } catch (IOException | ConnectionException e) {
-            if (!SceneHandler.getInstance().createErrorWithContacts(AlertMessages.CONNECTION_ERROR_MSG,
-                    AlertMessages.CONNECTION_ERROR_TITLE)) {
+            if (SceneHandler.getInstance().createAlertWithButtons(AlertMessages.CONNECTION_ERROR_MSG,
+                    AlertMessages.CONNECTION_ERROR_TITLE, "OK", "Segnala l'errore", Alert.AlertType.ERROR))
                 SceneHandler.getInstance().showHelpAlert();
-            }
         }
     }
 
     @FXML
-    void ServiceAction(ActionEvent event) {
+    void ServiceAction() {
         SceneHandler.getInstance().showHelpAlert();
     }
 
     @FXML
-    void SocietyAction(ActionEvent event) {
+    void SocietyAction() {
         SceneHandler.getInstance().showSocietyAlert();
     }
 
     @FXML
-    void ThemeChange(ActionEvent event) { SceneHandler.getInstance().changeTheme(); }
+    void ThemeChange() {
+        SceneHandler.getInstance().changeTheme();
+    }
 
     @FXML
     void initialize() {

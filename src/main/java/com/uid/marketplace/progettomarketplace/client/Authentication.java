@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 class Authentication {
 
-    private final ScheduledExecutorService executor =  Executors.newSingleThreadScheduledExecutor();
+    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     private final Client client;
 
     Authentication(Client client) {
@@ -27,12 +27,12 @@ class Authentication {
     }
 
     boolean logout() throws IOException, ConnectionException {
-        if(client.email == null || client.user == null || client.token == null || client.refreshToken == null) {
+        if (client.email == null || client.user == null || client.token == null || client.refreshToken == null) {
             resetTokens();
             return true;
         }
         QueryResult result = client.parseOutput(client.connect(client.url + "/logout?id=" + client.user + "&token=" + client.token), false);
-        if(result.success()) {
+        if (result.success()) {
             resetTokens();
             return true;
         }
@@ -52,14 +52,14 @@ class Authentication {
         Objects.requireNonNull(password, "Password cannot be null");
         String action = login ? "login" : "register";
         QueryResult result = client.parseOutput(client.connect(client.url + "/" + action + "?username=" + username + "&password=" + password), true);
-        if(result.success()) {
+        if (result.success()) {
             JSONObject output = new JSONObject(result.message());
             if (output.has("localId")) {
                 client.email = username;
                 client.user = output.getString("localId");
                 client.token = output.getString("idToken");
                 client.refreshToken = output.getString("refreshToken");
-                if(output.has("role")) client.adminRole = output.getString("role").equals("admin");
+                if (output.has("role")) client.adminRole = output.getString("role").equals("admin");
                 scheduleRefresh(Integer.parseInt(output.getString("expiresIn")));
                 return client.user;
             }
@@ -70,7 +70,7 @@ class Authentication {
     String changeEmail(String email) throws IOException, ConnectionException {
         Objects.requireNonNull(email, "Email cannot be null");
         QueryResult result = client.parseOutput(client.connect(client.url + "/change_email?email=" + email + "&token=" + client.token), true);
-        if(result.success()) {
+        if (result.success()) {
             JSONObject output = new JSONObject(result.message());
             if (output.has("localId")) {
                 client.email = email;
@@ -86,7 +86,7 @@ class Authentication {
 
     boolean sendEmailVerification() throws IOException, ConnectionException {
         QueryResult result = client.parseOutput(client.connect(client.url + "/send_email_verification?token=" + client.token), true);
-        if(result.success()) {
+        if (result.success()) {
             JSONObject output = new JSONObject(result.message());
             return (output.has("email"));
         }
@@ -96,7 +96,7 @@ class Authentication {
     boolean resetPassword(String email) throws IOException, ConnectionException {
         Objects.requireNonNull(email, "Email cannot be null");
         QueryResult result = client.parseOutput(client.connect(client.url + "/reset_password?email=" + email), true);
-        if(result.success()) {
+        if (result.success()) {
             JSONObject output = new JSONObject(result.message());
             return (output.has("email"));
         }
@@ -105,7 +105,7 @@ class Authentication {
 
     boolean isEmailVerified() throws IOException, ConnectionException {
         QueryResult result = client.parseOutput(client.connect(client.url + "/get_user_data?token=" + client.token), true);
-        if(result.success()) {
+        if (result.success()) {
             JSONObject output = new JSONObject(result.message());
             if (output.has("emailVerified")) {
                 return output.getBoolean("emailVerified");
@@ -117,7 +117,7 @@ class Authentication {
     String changePassword(String password) throws IOException, ConnectionException {
         Objects.requireNonNull(password, "Password cannot be null");
         QueryResult result = client.parseOutput(client.connect(client.url + "/change_password?password=" + password + "&token=" + client.token), true);
-        if(result.success()) {
+        if (result.success()) {
             JSONObject output = new JSONObject(result.message());
             if (output.has("localId")) {
                 client.user = output.getString("localId");
@@ -138,7 +138,7 @@ class Authentication {
                 if (output.has("id_token") && output.has("refresh_token") && output.has("expires_in")) {
                     client.token = output.getString("id_token");
                     client.refreshToken = output.getString("refresh_token");
-                    executor.schedule(this::refreshToken, Integer.parseInt(output.getString("expires_in"))+1, TimeUnit.SECONDS);
+                    executor.schedule(this::refreshToken, Integer.parseInt(output.getString("expires_in")) + 1, TimeUnit.SECONDS);
                 }
             }
         } catch (Exception e) {
@@ -147,7 +147,7 @@ class Authentication {
     }
 
     private void scheduleRefresh(Integer expiresIn) {
-        executor.schedule(this::refreshToken, expiresIn+1, TimeUnit.SECONDS);
+        executor.schedule(this::refreshToken, expiresIn + 1, TimeUnit.SECONDS);
     }
 
     void close() throws IOException, ConnectionException {

@@ -24,7 +24,7 @@ record DatabaseQuery(Client client) {
 
     private String createURL(String table, String mode) {
         String res = client.url + "/" + (table == null ? "" : table + "/") + mode;
-        if(GET.equals(mode) && (client.user == null || client.token == null))
+        if (GET.equals(mode) && (client.user == null || client.token == null))
             return res;
         return res + "?id=" + client.user + "&token=" + client.token;
     }
@@ -58,7 +58,7 @@ record DatabaseQuery(Client client) {
     }
 
     DatabaseReference retrieveFile(String fileId) throws IOException, ConnectionException {
-        HttpURLConnection conn = (HttpURLConnection) new URL( createURL(null, RETRIEVE_FILE) + "&fileId=" + fileId).openConnection();
+        HttpURLConnection conn = (HttpURLConnection) new URL(createURL(null, RETRIEVE_FILE) + "&fileId=" + fileId).openConnection();
         conn.setRequestMethod("GET");
         int responseCode = conn.getResponseCode();
         if (responseCode != 200) {
@@ -79,7 +79,7 @@ record DatabaseQuery(Client client) {
     }
 
     DatabaseReference deleteFile(String fileId) throws IOException, ConnectionException {
-        HttpURLConnection conn = (HttpURLConnection) new URL( createURL(null, DELETE_FILE) + "&fileId=" + fileId).openConnection();
+        HttpURLConnection conn = (HttpURLConnection) new URL(createURL(null, DELETE_FILE) + "&fileId=" + fileId).openConnection();
         conn.setRequestMethod("GET");
         int responseCode = conn.getResponseCode();
         if (responseCode != 200) {

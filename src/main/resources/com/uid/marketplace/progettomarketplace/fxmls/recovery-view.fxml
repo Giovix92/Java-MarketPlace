@@ -1,204 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="anchorPane" prefHeight="770.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uid.marketplace.progettomarketplace.Controller.RecoveryController">
-   <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox fx:id="headerSection" alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
-               <children>
-                  <ImageView fx:id="HomePageButton" fitHeight="70.0" fitWidth="200.0" onMouseClicked="#HomeAction" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <Label fx:id="returnToHomeLabel" alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox fx:id="PasswordRecoveryVBOX" alignment="TOP_CENTER" maxHeight="265.0" maxWidth="405.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="405.0">
-               <children>
-                  <Label fx:id="assistanceLabel" text="Assistenza per la" VBox.vgrow="NEVER">
-                     <font>
-                        <Font name="Roboto" size="25.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="165.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="assistanceLabel2" text="password">
-                     <font>
-                        <Font name="Roboto" size="25.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="245.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="assistanceLabel3" text="Inserisci l'indirizzo e-mail">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="186.0" top="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="assistanceLabel4" text="associato al tuo account.">
-                     <font>
-                        <Font name="Roboto" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="184.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="mailLabel" text="Indirizzo e-mail" VBox.vgrow="NEVER">
-                     <font>
-                        <Font name="Roboto" size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="240.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="MailBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </TextField>
-                  <Button fx:id="RecoveryPasswordButton" mnemonicParsing="false" onAction="#RecoveryPasswordAction" text="Recupera Password" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets top="40.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="changeLabel" text="Vuoi cambiare l'indirizzo e-mail?">
-                     <font>
-                        <Font name="Roboto" size="17.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="163.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="changeLabel2" text="Se non utilizzi più l'indirizzo email associato all'account">
-                     <VBox.margin>
-                        <Insets right="85.0" top="3.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="changeLabel3" contentDisplay="RIGHT" text="potrai contattare il ">
-                     <graphic>
-                        <Hyperlink contentDisplay="RIGHT" onAction="#ServiceAction" pickOnBounds="false" text="Servizio Clienti">
-                           <padding>
-                              <Insets left="-4.0" />
-                           </padding>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" prefHeight="770.0" prefWidth="1050.0"
+            xmlns="http://javafx.com/javafx/18"
+            fx:controller="com.uid.marketplace.progettomarketplace.controllers.RecoveryController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox fx:id="headerSection" alignment="TOP_CENTER" prefHeight="28.0" prefWidth="120.0">
+                    <children>
+                        <ImageView fx:id="HomePageButton" fitHeight="70.0" fitWidth="200.0" onMouseClicked="#HomeAction"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                        </ImageView>
+                        <Label fx:id="returnToHomeLabel" alignment="CENTER" text="Ritorna alla Home" textFill="#838080">
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <VBox fx:id="PasswordRecoveryVBOX" alignment="TOP_CENTER" maxHeight="265.0" maxWidth="405.0"
+                      minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="405.0">
+                    <children>
+                        <Label fx:id="assistanceLabel" text="Assistenza per la" VBox.vgrow="NEVER">
+                            <font>
+                                <Font name="Roboto" size="25.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets right="165.0" top="20.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="assistanceLabel2" text="password">
+                            <font>
+                                <Font name="Roboto" size="25.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets right="245.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="assistanceLabel3" text="Inserisci l'indirizzo e-mail">
+                            <font>
+                                <Font name="Roboto" size="15.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets right="186.0" top="5.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="assistanceLabel4" text="associato al tuo account.">
+                            <font>
+                                <Font name="Roboto" size="15.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets right="184.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="mailLabel" text="Indirizzo e-mail" VBox.vgrow="NEVER">
+                            <font>
+                                <Font name="Roboto" size="16.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets right="240.0" top="20.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="MailBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                   minWidth="-Infinity" prefHeight="25.0" prefWidth="348.0" VBox.vgrow="NEVER">
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="5.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </TextField>
+                        <Button fx:id="RecoveryPasswordButton" mnemonicParsing="false"
+                                onAction="#RecoveryPasswordAction" text="Recupera Password" VBox.vgrow="NEVER">
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="40.0"/>
+                    </VBox.margin>
+                </VBox>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label fx:id="changeLabel" text="Vuoi cambiare l'indirizzo e-mail?">
+                            <font>
+                                <Font name="Roboto" size="17.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets right="163.0" top="10.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="changeLabel2" text="Se non utilizzi più l'indirizzo email associato all'account">
+                            <VBox.margin>
+                                <Insets right="85.0" top="3.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="changeLabel3" contentDisplay="RIGHT" text="potrai contattare il ">
+                            <graphic>
+                                <Hyperlink contentDisplay="RIGHT" onAction="#ServiceAction" pickOnBounds="false"
+                                           text="Servizio Clienti">
+                                    <padding>
+                                        <Insets left="-4.0"/>
+                                    </padding>
+                                </Hyperlink>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets right="205.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="changeLabel4"
+                               text=" per ricevere assistenza sul ripristino dell'accesso all'account.">
+                            <VBox.margin>
+                                <Insets right="54.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+        <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0"
+              prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label fx:id="lowerLabel" text="UID - MarketPlace" VBox.vgrow="NEVER">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <font>
+                        <Font name="Roboto" size="22.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="lowerLabel2" text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <font>
+                        <Font name="Roboto" size="15.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Hyperlink fx:id="ConditionHyperlink" onAction="#ConditionAction"
+                                   text="Condizioni generali di vendita">
+                            <HBox.margin>
+                                <Insets left="-45.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
                         </Hyperlink>
-                     </graphic>
-                     <VBox.margin>
-                        <Insets right="205.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="changeLabel4" text=" per ricevere assistenza sul ripristino dell'accesso all'account.">
-                     <VBox.margin>
-                        <Insets right="54.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-         </children>
-      </VBox>
-      <VBox fx:id="lowerSection" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Label fx:id="lowerLabel" text="UID - MarketPlace" VBox.vgrow="NEVER">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font name="Roboto" size="22.0" />
-               </font>
-            </Label>
-            <Label fx:id="lowerLabel2" text="Designed by G.J.G. Inc." VBox.vgrow="NEVER">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font name="Roboto" size="15.0" />
-               </font>
-            </Label>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Hyperlink fx:id="ConditionHyperlink" onAction="#ConditionAction" text="Condizioni generali di vendita">
-                     <HBox.margin>
-                        <Insets left="-45.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Hyperlink>
-                  <Hyperlink onAction="#SocietyAction" text="La nostra società">
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Hyperlink>
-                  <Hyperlink onAction="#PrivacyAction" text="Informativa sulla privacy">
-                     <HBox.margin>
-                        <Insets left="12.5" top="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </Hyperlink>
-                  <Hyperlink onAction="#ThemeChange" text="Cambia tema">
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Hyperlink>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+                        <Hyperlink onAction="#SocietyAction" text="La nostra società">
+                            <HBox.margin>
+                                <Insets top="10.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </Hyperlink>
+                        <Hyperlink onAction="#PrivacyAction" text="Informativa sulla privacy">
+                            <HBox.margin>
+                                <Insets left="12.5" top="10.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                        </Hyperlink>
+                        <Hyperlink onAction="#ThemeChange" text="Cambia tema">
+                            <font>
+                                <Font name="Roboto" size="13.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="10.0"/>
+                            </HBox.margin>
+                        </Hyperlink>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

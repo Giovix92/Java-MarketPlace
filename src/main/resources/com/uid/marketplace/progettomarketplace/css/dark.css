@@ -14,4 +14,5 @@
     lowerSectionColor: linear-gradient(to bottom, #262626, #424242);
     totalLabelColor: #ffffff;
     hyperLinkColor: #44b8fc;
+    blurColor: dropshadow(one-pass-box, #919191, 25, 0.5, 0.0, 0.0);
 }

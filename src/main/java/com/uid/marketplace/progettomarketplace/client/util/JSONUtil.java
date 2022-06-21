@@ -9,52 +9,51 @@ public class JSONUtil {
 
     public static List<JSONObject> process(String table, JSONObject jsonObject) {
         List<JSONObject> res = new ArrayList<>();
-        if(jsonObject.has(table)) {
+        if (jsonObject.has(table)) {
             try {
                 JSONArray array = jsonObject.getJSONArray(table);
                 for (int i = 0; i < array.length(); i++) {
                     res.add(array.getJSONObject(i));
                 }
-            } catch(Exception ignored) {
+            } catch (Exception ignored) {
             }
         }
         return res;
     }
 
-    private static boolean isWrapper(Class obj)  {
+    private static boolean isWrapper(Class obj) {
         return Set.of(Boolean.class, Byte.class, Character.class, Double.class, Float.class, Integer.class, Long.class, Short.class, Void.class).contains(obj);
     }
 
     private static String toJSONString(Object o) throws Exception {
-        if(Map.class.isAssignableFrom(o.getClass())) {
+        if (Map.class.isAssignableFrom(o.getClass())) {
             var map = (Map) o;
             StringBuilder res = new StringBuilder("{");
-            for(var element : map.keySet()) {
+            for (var element : map.keySet()) {
                 res.append(element + ":" + toJSONString(map.get(element))).append(",");
             }
-            if(res.charAt(res.length()-1) == ',') {
-                res.replace(res.length()-1, res.length(), "}");
-            }
-            else
+            if (res.charAt(res.length() - 1) == ',') {
+                res.replace(res.length() - 1, res.length(), "}");
+            } else
                 res.append("}");
             return res.toString();
         }
-        if(Iterable.class.isAssignableFrom(o.getClass())) {
+        if (Iterable.class.isAssignableFrom(o.getClass())) {
             var list = (Iterable) o;
             StringBuilder res = new StringBuilder("[");
-            for(var element : list) {
+            for (var element : list) {
                 res.append(toJSONString(element)).append(",");
             }
-            if(res.charAt(res.length()-1) == ',')
+            if (res.charAt(res.length() - 1) == ',')
                 res.replace(res.length() - 1, res.length() - 1, "]");
             else
                 res.append("]");
             return res.toString();
         }
-        if(Number.class.isAssignableFrom(o.getClass())) {
+        if (Number.class.isAssignableFrom(o.getClass())) {
             return o.toString();
         }
-        if(String.class.isAssignableFrom(o.getClass()) || isWrapper(o.getClass())) {
+        if (String.class.isAssignableFrom(o.getClass()) || isWrapper(o.getClass())) {
             return "\"" + o + "\"";
         }
         return toJSON(o).toString();
@@ -76,7 +75,7 @@ public class JSONUtil {
                 }
             }
         }
-        parameters.replace(parameters.length()-1, parameters.length(), "}");
+        parameters.replace(parameters.length() - 1, parameters.length(), "}");
         return new JSONObject(parameters.toString());
     }
 }

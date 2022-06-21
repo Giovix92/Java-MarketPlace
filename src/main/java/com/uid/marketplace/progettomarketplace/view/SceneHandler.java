@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -48,6 +49,7 @@ public class SceneHandler {
             this.stage.setMinWidth(1080);
             this.stage.setMinHeight(840);
             this.stage.setTitle("UID - MarketPlace");
+            this.stage.getIcons().add(new Image(Objects.requireNonNull(MarketPlaceApplication.class.getResourceAsStream("images/icon.png"))));
             this.stage.setOnCloseRequest(windowEvent -> {
                 try {
                     if (Client.getInstance() != null) {

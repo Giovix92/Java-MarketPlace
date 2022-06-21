@@ -129,15 +129,18 @@ public class Utente {
         JSONObject newJson = JSONUtil.toJSON(order);
         newJson.put("cartArray", Cart.getInstance().getCartArray());
         Client.getInstance().insert("orders", newJson,
-                ref -> Platform.runLater(() -> {
-                    Cart.getInstance().emptyCart();
-                    SceneHandler.getInstance().createAlert(AlertMessages.ORDER_DONE_MSG, AlertMessages.ORDER_DONE_TITLE);
-                    try {
-                        SceneHandler.getInstance().setHomePageScene();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }), exc -> Platform.runLater(() -> {
+                ref -> {
+                    Platform.runLater(() -> {
+                        Cart.getInstance().emptyCart();
+                        SceneHandler.getInstance().createAlert(AlertMessages.ORDER_DONE_MSG, AlertMessages.ORDER_DONE_TITLE);
+                        try {
+                            SceneHandler.getInstance().setHomePageScene();
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                    //Send email
+                }, exc -> Platform.runLater(() -> {
                     if (SceneHandler.getInstance().createAlertWithButtons(AlertMessages.CONNECTION_ERROR_MSG,
                             AlertMessages.CONNECTION_ERROR_TITLE, "OK", "Segnala l'errore", Alert.AlertType.ERROR))
                         SceneHandler.getInstance().showHelpAlert();

@@ -78,6 +78,7 @@
                             <mainClass>
                                 com.uid.marketplace.progettomarketplace/com.uid.marketplace.progettomarketplace.MarketPlaceApplication
                             </mainClass>
+                            <appName>UID - MarketPlace</appName>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

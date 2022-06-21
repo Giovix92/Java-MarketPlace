@@ -8,6 +8,7 @@ import com.uid.marketplace.progettomarketplace.utils.Utente;
 import com.uid.marketplace.progettomarketplace.view.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -40,6 +41,8 @@ public class CartController {
     void purchaseAction() throws Exception {
         if (Client.getInstance().getEmail() == null) {
             SceneHandler.getInstance().setAccessScene();
+        } else if(Cart.getInstance().getCartArray().length() == 0) {
+            SceneHandler.getInstance().createAlert(AlertMessages.NO_PRODUCTS_IN_CART_MSG, AlertMessages.NO_ORDERS_TITLE);
         } else {
             double balance = Double.parseDouble(Utente.getInstance().getSaldo());
             if (balance < finalAmount) {

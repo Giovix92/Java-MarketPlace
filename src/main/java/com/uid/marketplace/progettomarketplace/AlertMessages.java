@@ -48,8 +48,10 @@ public interface AlertMessages {
     String ORDER_DONE_TITLE = "Ordine effettuato";
     String ORDER_DONE_MSG = "Ordine completato con successo!";
 
-    String NO_ORDERS_TITLE = "Attenzione;";
+    String NO_ORDERS_TITLE = "Attenzione";
     String NO_ORDERS_MSG = "Nessun ordine presente nel tuo account!";
+    String NO_PRODUCTS_IN_CART_MSG = "Inserisci almeno un prodotto nel carrello per continuare!";
+    String COMPLETE_ACCOUNT_FIRST_MSG = "Completa il tuo account per poter continuare!";
     String INVALID_COUPON_MSG = "Il coupon che hai inserito non è valido! Riprova.";
     String ADDED_TO_CART_MSG = "Il prodotto è stato aggiunto al carrello correttamente!";
     String ADDED_TO_CART_TITLE = "Prodotto aggiunto";

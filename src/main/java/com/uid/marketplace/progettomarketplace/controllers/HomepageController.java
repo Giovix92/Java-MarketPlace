@@ -113,6 +113,10 @@ public class HomepageController {
 
     @FXML
     void CartAction() throws Exception {
+        if(Client.getInstance().getEmail() != null && (Utente.getInstance().getName() == null || Utente.getInstance().getSurname() == null || Utente.getInstance().getAddress() == null)) {
+            SceneHandler.getInstance().createAlert(AlertMessages.COMPLETE_ACCOUNT_FIRST_MSG, AlertMessages.NO_ORDERS_TITLE);
+            return;
+        }
         subAnchorPane.getChildren().setAll((Node) FXMLLoader.load(Objects.requireNonNull(MarketPlaceApplication.class.getResource("fxmls/cart-view.fxml"))));
     }
 
@@ -128,8 +132,10 @@ public class HomepageController {
 
     @FXML
     void OrderAction() throws Exception {
-        if (Client.getInstance().getEmail() == null) SceneHandler.getInstance().setAccessScene();
-        else {
+        if(Client.getInstance().getEmail() == null) SceneHandler.getInstance().setAccessScene();
+        else if(Client.getInstance().getEmail() != null && (Utente.getInstance().getName() == null || Utente.getInstance().getSurname() == null || Utente.getInstance().getAddress() == null)) {
+            SceneHandler.getInstance().createAlert(AlertMessages.COMPLETE_ACCOUNT_FIRST_MSG, AlertMessages.NO_ORDERS_TITLE);
+        } else {
             if (Utente.getInstance().getOrders() == null || Utente.getInstance().getOrders().length() == 0) {
                 SceneHandler.getInstance().createAlert(AlertMessages.NO_ORDERS_MSG, AlertMessages.NO_ORDERS_TITLE);
                 return;

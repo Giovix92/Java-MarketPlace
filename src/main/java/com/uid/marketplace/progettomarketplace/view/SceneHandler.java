@@ -25,9 +25,6 @@ public class SceneHandler {
     private Scene scene;
     private String theme = "light";
 
-    private SceneHandler() {
-    }
-
     public static SceneHandler getInstance() {
         return instance;
     }
@@ -39,7 +36,6 @@ public class SceneHandler {
             String res = Objects.requireNonNull(MarketPlaceApplication.class.getResource(style)).toExternalForm();
             scene.getStylesheets().add(res);
             alert.getDialogPane().getStylesheets().add(res);
-
         }
     }
 

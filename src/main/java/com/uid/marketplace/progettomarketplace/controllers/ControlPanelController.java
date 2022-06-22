@@ -91,11 +91,11 @@ public class ControlPanelController {
 
     @FXML
     void AddCouponAction() throws Exception {
-        if (CouponBar.getText().equals("")) {
+        if(CouponBar.getText().equals("")) {
             SceneHandler.getInstance().createError(AlertMessages.COUPON_EMPTY_ERROR_MSG, AlertMessages.COUPON_EMPTY_ERROR_TITLE);
             return;
         }
-        if (ValueBar.getText().equals("")) {
+        if(ValueBar.getText().equals("") || Double.parseDouble(ValueBar.getText().replace(",", ".")) <= 0) {
             SceneHandler.getInstance().createError(AlertMessages.COUPON_EMPTY_VALUE_ERROR_MSG, AlertMessages.COUPON_EMPTY_VALUE_ERROR_TITLE);
             return;
         }
@@ -117,8 +117,15 @@ public class ControlPanelController {
 
     @FXML
     void AddProductAction() {
-        if (Prodotto.getInstance().getImage_id() == null) {
+        if(Prodotto.getInstance().getImage_id() == null) {
             SceneHandler.getInstance().createAlert(AlertMessages.SET_PRODUCT_IMAGE_ERROR_MSG, AlertMessages.SET_PRODUCT_IMAGE_ERROR_TITLE);
+            return;
+        }
+
+        if(ProductDescriptionBar.getText().equals("") || ProductNameBar.getText().equals("") || ProductSellerBar.getText().equals("") ||
+                ProductPriceBar.getText().equals("") || Double.parseDouble(ProductPriceBar.getText().replace(",", ".")) <= 0 ||
+                CategoriesProductButton.getText().equals("Categorie")) {
+            SceneHandler.getInstance().createAlert(AlertMessages.MISSING_INFOS_MSG, AlertMessages.MISSING_INFOS_TITLE);
             return;
         }
 
@@ -127,7 +134,7 @@ public class ControlPanelController {
         Client.getInstance().uploadFile(file, file.getName().replaceAll(".*\\.", ""),
                 ref -> {
                     String description = ProductDescriptionBar.getText().replace("\"", "");
-                    Product product = new Product(ProductNameBar.getText(), description, ProductSellerBar.getText(), ProductPriceBar.getText(), ref.fileId(), CategoriesProductButton.getText());
+                    Product product = new Product(ProductNameBar.getText(), description, ProductSellerBar.getText(), String.valueOf(Double.parseDouble(ProductPriceBar.getText().replace(",", "."))), ref.fileId(), CategoriesProductButton.getText());
                     JSONObject obj = JSONUtil.toJSON(product);
                     Client.getInstance().insert("prodotti", obj,
                             reference -> Platform.runLater(() -> {

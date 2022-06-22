@@ -1,7 +1,9 @@
 package com.uid.marketplace.progettomarketplace.controllers;
 
+import com.uid.marketplace.progettomarketplace.AlertMessages;
 import com.uid.marketplace.progettomarketplace.MarketPlaceApplication;
 import com.uid.marketplace.progettomarketplace.utils.Prodotto;
+import com.uid.marketplace.progettomarketplace.view.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -43,7 +45,7 @@ public class SearchController {
         }
     }
 
-    void showProducts() {
+    void showProducts() throws Exception {
         Prodotto.getInstance().getIds2Objs().forEach((id, obj) -> {
             Image img = Prodotto.getInstance().getIds2Images().get(id);
             Label productLabel = new Label(obj.getString("venditore") + " " + obj.getString("nome"));
@@ -74,10 +76,14 @@ public class SearchController {
             VBox.setMargin(hbox, new Insets(0, 0, 20, 20));
             vBox.getChildren().add(hbox);
         });
+        if(vBox.getChildren().size() == 0) {
+            SceneHandler.getInstance().createAlert(AlertMessages.NO_PRODUCTS_FOUND_MSG, AlertMessages.NO_PRODUCTS_FOUND_TITLE);
+            SceneHandler.getInstance().setHomePageScene();
+        }
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
         AnchorPane.setBottomAnchor(anchorPane, 0.0);
         AnchorPane.setLeftAnchor(anchorPane, 0.0);
         AnchorPane.setRightAnchor(anchorPane, 0.0);

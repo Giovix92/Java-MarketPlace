@@ -28,7 +28,7 @@ public interface AlertMessages {
     String ACCOUNT_COMPLETED_TITLE = "Account ultimato";
     String ACCOUNT_UPDATED_MSG = "Hai aggiornato con successo le informazioni dell'account!";
     String ACCOUNT_UPDATED_TITLE = "Informazioni aggiornate";
-    String MISSING_INFOS_MSG = "Assicurati di aver compilato tutti i campi prima di continuare!";
+    String MISSING_INFOS_MSG = "Assicurati di aver compilato tutti i campi correttamente prima di continuare!";
     String MISSING_INFOS_TITLE = "Impossibile continuare";
     String COUPON_ADDED_MSG = "Il coupon è stato aggiunto correttamente!";
     String COUPON_ADDED_TITLE = "Coupon aggiunto!";
@@ -47,7 +47,6 @@ public interface AlertMessages {
             "Vuoi ricaricare il tuo saldo?";
     String ORDER_DONE_TITLE = "Ordine effettuato";
     String ORDER_DONE_MSG = "Ordine completato con successo!";
-
     String NO_ORDERS_TITLE = "Attenzione";
     String NO_ORDERS_MSG = "Nessun ordine presente nel tuo account!";
     String NO_PRODUCTS_IN_CART_MSG = "Inserisci almeno un prodotto nel carrello per continuare!";
@@ -55,6 +54,8 @@ public interface AlertMessages {
     String INVALID_COUPON_MSG = "Il coupon che hai inserito non è valido! Riprova.";
     String ADDED_TO_CART_MSG = "Il prodotto è stato aggiunto al carrello correttamente!";
     String ADDED_TO_CART_TITLE = "Prodotto aggiunto";
+    String NO_PRODUCTS_FOUND_MSG = "Nessun prodotto trovato! Prova a cambiare il termine di ricerca.";
+    String NO_PRODUCTS_FOUND_TITLE = "Informazioni";
     String PRIVACY_POLICY_MSG = """
             0. Informativa sulla privacy
             UID - Marketplace prende sul serio la vostra privacy.

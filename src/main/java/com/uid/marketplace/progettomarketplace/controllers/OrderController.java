@@ -49,7 +49,7 @@ public class OrderController {
                     "-fx-border-radius: 5px;");
             String fullAddress = "Inviato a: " + order.getString("nome") + " " + order.getString("cognome") + " " +
                     order.getString("indirizzo") + ", " + order.getString("date") + ".";
-            String total = "Totale: " + order.getString("total");
+            String total = "Totale: " + order.getString("total") + "€";
             Label infos = new Label(fullAddress);
             Label amount = new Label(total);
             infos.setStyle("-fx-font-size: 18px");

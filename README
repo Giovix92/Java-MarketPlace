@@ -1,5 +1,0 @@
-BUG: Se l'update viene effettuato da un utente non-admin, ritorna errore:
-Cannot remove from coupon: operation not allowed
-
-E' probabilmente dovuto al server che non permette l'eliminazione 
-da parte di non-admin di elementi creati da admins.
